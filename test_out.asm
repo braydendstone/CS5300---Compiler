@@ -15,8 +15,17 @@ move $s7, $gp
 addi $s7, $s7, 0
 lw $s6, 0($s7)
 lw $s5, 0($gp)
-li $s6, 5
-sge $s7, $s5, $s6
+li $s6, 1
+add $s7, $s5, $s6
+move $s5, $gp
+addi $s5, $s5, 0
+sw $s7, 0($s5)
+move $s7, $gp
+addi $s7, $s7, 0
+lw $s5, 0($s7)
+lw $s6, 0($gp)
+li $s5, 5
+sge $s7, $s6, $s5
 beq $s7, $0, WHILE0
 la $a0, STR1
 li $v0, 4

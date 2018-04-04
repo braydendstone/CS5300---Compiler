@@ -5,6 +5,7 @@ BEGIN
   x := 0;
   repeat
     write("It is not 5 yet\n");
+    x := x + 1;
   until x >= 5;
 
   write("\nAll done! :)");
