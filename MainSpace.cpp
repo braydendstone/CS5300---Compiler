@@ -742,7 +742,7 @@ void MainSpace::copy(std::string srcReg, std::string destReg, int index, std::sh
 //    return
 //}
 
-void MainSpace::startWhile(){
+void MainSpace::startLoop(){
     // Print start label
     std::cout << "WHILE" << whileCount << ": " << std::endl;
 }
@@ -772,4 +772,18 @@ void MainSpace::endWhile(int index){
     // Print jump then end label
     std::cout << "j " << "WHILE" << index << std::endl;
     std::cout << "WHILE" << index << "_END:" << std::endl;
+}
+
+void MainSpace::repeat(Expression* expr){
+    // Check condition and jump to label
+    if(expr->isExprConst()) {
+        auto tempReg = RegPool::allocate();
+        std::cout << "li " << tempReg << ", " << expr->getVal() << std::endl;
+        std::cout << "beq " << tempReg << ", $0, WHILE" << whileCount << std::endl;
+        RegPool::returnReg(tempReg);
+    } else {
+        auto reg = expr->getReg();
+        std::cout << "beq " << reg << ", $0, WHILE" << whileCount << std::endl;
+        RegPool::returnReg(reg);
+    }
 }

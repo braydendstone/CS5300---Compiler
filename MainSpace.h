@@ -71,9 +71,12 @@ public:
     static std::pair<std::string, std::string> ifExpr(std::string label);
     static std::string ifExprEnd();
 
-    static void startWhile();
+    static void startLoop();
+
     static int whileHead(Expression* expr);
     static void endWhile(int index);
+
+    static void repeat(Expression* expr);
 };
 
 

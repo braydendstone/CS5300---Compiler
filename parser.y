@@ -296,9 +296,11 @@ WhileStatement : WhileHead DOSY StatementList ENDSY { MainSpace::endWhile($1); /
 WhileHead : WhileStart Expression { $$ = MainSpace::whileHead($2); /* print condition and branch, return counter for end label */}
           ;
 
-WhileStart : WHILESY { MainSpace::startWhile(); }
+WhileStart : WHILESY { MainSpace::startLoop(); }
 
-RepeatStatement : REPEATSY StatementList UNTILSY Expression {}
+RepeatStatement : RepeatStart StatementList UNTILSY Expression { MainSpace::repeat($4); }
+
+RepeatStart : REPEATSY { MainSpace::startLoop(); }
 
 ForStatement : ForHead ToHead DOSY StatementList ENDSY{}
              ;

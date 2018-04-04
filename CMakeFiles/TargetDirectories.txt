@@ -1,0 +1,3 @@
+/home/braydendstone/Documents/CS5300/official/CMakeFiles/rebuild_cache.dir
+/home/braydendstone/Documents/CS5300/official/CMakeFiles/cpsl.dir
+/home/braydendstone/Documents/CS5300/official/CMakeFiles/edit_cache.dir
