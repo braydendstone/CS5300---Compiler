@@ -9,8 +9,16 @@
 ..//Expression.h
 Types.h
 ../Types.h
+RegPool.h
+../RegPool.h
 memory
 -
+iostream
+-
+
+..//LValue.h
+GlobalSymbolTable.h
+../GlobalSymbolTable.h
 
 ..//MainSpace.h
 string
@@ -23,6 +31,8 @@ Types.h
 ../Types.h
 RegPool.h
 ../RegPool.h
+LValue.h
+../LValue.h
 
 ..//Types.h
 string
@@ -30,6 +40,8 @@ string
 memory
 -
 bits/shared_ptr.h
+-
+map
 -
 
 ../GlobalSymbolTable.h
@@ -68,53 +80,69 @@ Types.h
 Symbol.h
 ../Symbol.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/Expression.cpp
+/home/braydendstone/Documents/CS5300/official/Expression.cpp
 Expression.h
-/home/braydendstone/Documents/CS5300/Compilers/official/Expression.h
+/home/braydendstone/Documents/CS5300/official/Expression.h
+LValue.h
+/home/braydendstone/Documents/CS5300/official/LValue.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/Expression.h
+/home/braydendstone/Documents/CS5300/official/Expression.h
 Types.h
-/home/braydendstone/Documents/CS5300/Compilers/official/Types.h
+/home/braydendstone/Documents/CS5300/official/Types.h
+RegPool.h
+/home/braydendstone/Documents/CS5300/official/RegPool.h
 memory
 -
+iostream
+-
 
-/home/braydendstone/Documents/CS5300/Compilers/official/GlobalSymbolTable.cpp
+/home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.cpp
 iostream
 -
 map
 -
 GlobalSymbolTable.h
-/home/braydendstone/Documents/CS5300/Compilers/official/GlobalSymbolTable.h
+/home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/GlobalSymbolTable.h
+/home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.h
 SymbolTable.h
-/home/braydendstone/Documents/CS5300/Compilers/official/SymbolTable.h
+/home/braydendstone/Documents/CS5300/official/SymbolTable.h
 memory
 -
 
-/home/braydendstone/Documents/CS5300/Compilers/official/MainSpace.cpp
+/home/braydendstone/Documents/CS5300/official/LValue.cpp
+LValue.h
+/home/braydendstone/Documents/CS5300/official/LValue.h
+
+/home/braydendstone/Documents/CS5300/official/LValue.h
+GlobalSymbolTable.h
+/home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.h
+
+/home/braydendstone/Documents/CS5300/official/MainSpace.cpp
 iostream
 -
 MainSpace.h
-/home/braydendstone/Documents/CS5300/Compilers/official/MainSpace.h
+/home/braydendstone/Documents/CS5300/official/MainSpace.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/MainSpace.h
+/home/braydendstone/Documents/CS5300/official/MainSpace.h
 string
 -
 memory
 -
 GlobalSymbolTable.h
-/home/braydendstone/Documents/CS5300/Compilers/official/GlobalSymbolTable.h
+/home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.h
 Types.h
-/home/braydendstone/Documents/CS5300/Compilers/official/Types.h
+/home/braydendstone/Documents/CS5300/official/Types.h
 RegPool.h
-/home/braydendstone/Documents/CS5300/Compilers/official/RegPool.h
+/home/braydendstone/Documents/CS5300/official/RegPool.h
+LValue.h
+/home/braydendstone/Documents/CS5300/official/LValue.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/RegPool.cpp
+/home/braydendstone/Documents/CS5300/official/RegPool.cpp
 RegPool.h
-/home/braydendstone/Documents/CS5300/Compilers/official/RegPool.h
+/home/braydendstone/Documents/CS5300/official/RegPool.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/RegPool.h
+/home/braydendstone/Documents/CS5300/official/RegPool.h
 string
 -
 map
@@ -124,19 +152,19 @@ vector
 memory
 -
 
-/home/braydendstone/Documents/CS5300/Compilers/official/Symbol.h
+/home/braydendstone/Documents/CS5300/official/Symbol.h
 string
 -
 Types.h
-/home/braydendstone/Documents/CS5300/Compilers/official/Types.h
+/home/braydendstone/Documents/CS5300/official/Types.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/SymbolTable.cpp
+/home/braydendstone/Documents/CS5300/official/SymbolTable.cpp
 stdexcept
 -
 SymbolTable.h
-/home/braydendstone/Documents/CS5300/Compilers/official/SymbolTable.h
+/home/braydendstone/Documents/CS5300/official/SymbolTable.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/SymbolTable.h
+/home/braydendstone/Documents/CS5300/official/SymbolTable.h
 map
 -
 vector
@@ -144,39 +172,49 @@ vector
 memory
 -
 Expression.h
-/home/braydendstone/Documents/CS5300/Compilers/official/Expression.h
+/home/braydendstone/Documents/CS5300/official/Expression.h
 Types.h
-/home/braydendstone/Documents/CS5300/Compilers/official/Types.h
+/home/braydendstone/Documents/CS5300/official/Types.h
 Symbol.h
-/home/braydendstone/Documents/CS5300/Compilers/official/Symbol.h
+/home/braydendstone/Documents/CS5300/official/Symbol.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/Types.cpp
+/home/braydendstone/Documents/CS5300/official/Types.cpp
 Types.h
-/home/braydendstone/Documents/CS5300/Compilers/official/Types.h
+/home/braydendstone/Documents/CS5300/official/Types.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/Types.h
+/home/braydendstone/Documents/CS5300/official/Types.h
 string
 -
 memory
 -
 bits/shared_ptr.h
 -
+map
+-
 
-/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp
 iostream
 -
 fstream
 -
 MainSpace.h
-/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/MainSpace.h
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/MainSpace.h
 vector
 -
 string
 -
+utility
+-
+map
+-
+memory
+-
 Expression.h
-/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Expression.h
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Expression.h
 Types.h
-/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Types.h
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Types.h
+LValue.h
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/LValue.h
 stddef.h
 -
 libintl.h
@@ -192,17 +230,25 @@ stdlib.h
 stdio.h
 -
 
-/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.hpp
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.hpp
 vector
 -
 string
 -
+utility
+-
+map
+-
+memory
+-
 Expression.h
-/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Expression.h
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Expression.h
 Types.h
-/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Types.h
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Types.h
+LValue.h
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/LValue.h
 
-/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp
 stdio.h
 -
 string.h
@@ -218,11 +264,11 @@ cstring
 cstdlib
 -
 parser.hpp
-/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.hpp
+/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.hpp
 unistd.h
 -
 
-/home/braydendstone/Documents/CS5300/Compilers/official/main.cpp
+/home/braydendstone/Documents/CS5300/official/main.cpp
 MainSpace.h
-/home/braydendstone/Documents/CS5300/Compilers/official/MainSpace.h
+/home/braydendstone/Documents/CS5300/official/MainSpace.h
 

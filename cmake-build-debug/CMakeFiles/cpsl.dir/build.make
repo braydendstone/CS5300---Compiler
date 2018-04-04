@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/braydendstone/Documents/CS5300/Compilers/official
+CMAKE_SOURCE_DIR = /home/braydendstone/Documents/CS5300/official
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug
+CMAKE_BINARY_DIR = /home/braydendstone/Documents/CS5300/official/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cpsl.dir/depend.make
@@ -58,28 +58,28 @@ include CMakeFiles/cpsl.dir/progress.make
 include CMakeFiles/cpsl.dir/flags.make
 
 parser.cpp: ../parser.y
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "[BISON][Parser] Building parser with bison 3.0.4"
-	cd /home/braydendstone/Documents/CS5300/Compilers/official && /usr/bin/bison -d -o /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp parser.y
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "[BISON][Parser] Building parser with bison 3.0.4"
+	cd /home/braydendstone/Documents/CS5300/official && /usr/bin/bison -d -o /home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp parser.y
 
 parser.hpp: parser.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate parser.hpp
 
 scanner.cpp: ../scanner.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "[FLEX][Scanner] Building scanner with flex 2.6.1"
-	cd /home/braydendstone/Documents/CS5300/Compilers/official && /usr/bin/flex -o/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp scanner.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "[FLEX][Scanner] Building scanner with flex 2.6.1"
+	cd /home/braydendstone/Documents/CS5300/official && /usr/bin/flex -o/home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp scanner.l
 
 CMakeFiles/cpsl.dir/main.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cpsl.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/main.cpp.o -c /home/braydendstone/Documents/CS5300/Compilers/official/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cpsl.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/main.cpp.o -c /home/braydendstone/Documents/CS5300/official/main.cpp
 
 CMakeFiles/cpsl.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/Compilers/official/main.cpp > CMakeFiles/cpsl.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/main.cpp > CMakeFiles/cpsl.dir/main.cpp.i
 
 CMakeFiles/cpsl.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/Compilers/official/main.cpp -o CMakeFiles/cpsl.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/main.cpp -o CMakeFiles/cpsl.dir/main.cpp.s
 
 CMakeFiles/cpsl.dir/main.cpp.o.requires:
 
@@ -94,16 +94,16 @@ CMakeFiles/cpsl.dir/main.cpp.o.provides.build: CMakeFiles/cpsl.dir/main.cpp.o
 
 CMakeFiles/cpsl.dir/MainSpace.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/MainSpace.cpp.o: ../MainSpace.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cpsl.dir/MainSpace.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/MainSpace.cpp.o -c /home/braydendstone/Documents/CS5300/Compilers/official/MainSpace.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cpsl.dir/MainSpace.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/MainSpace.cpp.o -c /home/braydendstone/Documents/CS5300/official/MainSpace.cpp
 
 CMakeFiles/cpsl.dir/MainSpace.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/MainSpace.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/Compilers/official/MainSpace.cpp > CMakeFiles/cpsl.dir/MainSpace.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/MainSpace.cpp > CMakeFiles/cpsl.dir/MainSpace.cpp.i
 
 CMakeFiles/cpsl.dir/MainSpace.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/MainSpace.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/Compilers/official/MainSpace.cpp -o CMakeFiles/cpsl.dir/MainSpace.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/MainSpace.cpp -o CMakeFiles/cpsl.dir/MainSpace.cpp.s
 
 CMakeFiles/cpsl.dir/MainSpace.cpp.o.requires:
 
@@ -118,16 +118,16 @@ CMakeFiles/cpsl.dir/MainSpace.cpp.o.provides.build: CMakeFiles/cpsl.dir/MainSpac
 
 CMakeFiles/cpsl.dir/parser.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/parser.cpp.o: parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cpsl.dir/parser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/parser.cpp.o -c /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cpsl.dir/parser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/parser.cpp.o -c /home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp
 
 CMakeFiles/cpsl.dir/parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp > CMakeFiles/cpsl.dir/parser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp > CMakeFiles/cpsl.dir/parser.cpp.i
 
 CMakeFiles/cpsl.dir/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp -o CMakeFiles/cpsl.dir/parser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp -o CMakeFiles/cpsl.dir/parser.cpp.s
 
 CMakeFiles/cpsl.dir/parser.cpp.o.requires:
 
@@ -143,16 +143,16 @@ CMakeFiles/cpsl.dir/parser.cpp.o.provides.build: CMakeFiles/cpsl.dir/parser.cpp.
 CMakeFiles/cpsl.dir/scanner.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/scanner.cpp.o: scanner.cpp
 CMakeFiles/cpsl.dir/scanner.cpp.o: parser.hpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/cpsl.dir/scanner.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/scanner.cpp.o -c /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/cpsl.dir/scanner.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/scanner.cpp.o -c /home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp
 
 CMakeFiles/cpsl.dir/scanner.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/scanner.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp > CMakeFiles/cpsl.dir/scanner.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp > CMakeFiles/cpsl.dir/scanner.cpp.i
 
 CMakeFiles/cpsl.dir/scanner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/scanner.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp -o CMakeFiles/cpsl.dir/scanner.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp -o CMakeFiles/cpsl.dir/scanner.cpp.s
 
 CMakeFiles/cpsl.dir/scanner.cpp.o.requires:
 
@@ -167,16 +167,16 @@ CMakeFiles/cpsl.dir/scanner.cpp.o.provides.build: CMakeFiles/cpsl.dir/scanner.cp
 
 CMakeFiles/cpsl.dir/SymbolTable.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/SymbolTable.cpp.o: ../SymbolTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/cpsl.dir/SymbolTable.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/SymbolTable.cpp.o -c /home/braydendstone/Documents/CS5300/Compilers/official/SymbolTable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/cpsl.dir/SymbolTable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/SymbolTable.cpp.o -c /home/braydendstone/Documents/CS5300/official/SymbolTable.cpp
 
 CMakeFiles/cpsl.dir/SymbolTable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/SymbolTable.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/Compilers/official/SymbolTable.cpp > CMakeFiles/cpsl.dir/SymbolTable.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/SymbolTable.cpp > CMakeFiles/cpsl.dir/SymbolTable.cpp.i
 
 CMakeFiles/cpsl.dir/SymbolTable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/SymbolTable.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/Compilers/official/SymbolTable.cpp -o CMakeFiles/cpsl.dir/SymbolTable.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/SymbolTable.cpp -o CMakeFiles/cpsl.dir/SymbolTable.cpp.s
 
 CMakeFiles/cpsl.dir/SymbolTable.cpp.o.requires:
 
@@ -191,16 +191,16 @@ CMakeFiles/cpsl.dir/SymbolTable.cpp.o.provides.build: CMakeFiles/cpsl.dir/Symbol
 
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o: ../GlobalSymbolTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o -c /home/braydendstone/Documents/CS5300/Compilers/official/GlobalSymbolTable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o -c /home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.cpp
 
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/Compilers/official/GlobalSymbolTable.cpp > CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.cpp > CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.i
 
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/Compilers/official/GlobalSymbolTable.cpp -o CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.cpp -o CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.s
 
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o.requires:
 
@@ -215,16 +215,16 @@ CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o.provides.build: CMakeFiles/cpsl.dir/
 
 CMakeFiles/cpsl.dir/RegPool.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/RegPool.cpp.o: ../RegPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/cpsl.dir/RegPool.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/RegPool.cpp.o -c /home/braydendstone/Documents/CS5300/Compilers/official/RegPool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/cpsl.dir/RegPool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/RegPool.cpp.o -c /home/braydendstone/Documents/CS5300/official/RegPool.cpp
 
 CMakeFiles/cpsl.dir/RegPool.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/RegPool.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/Compilers/official/RegPool.cpp > CMakeFiles/cpsl.dir/RegPool.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/RegPool.cpp > CMakeFiles/cpsl.dir/RegPool.cpp.i
 
 CMakeFiles/cpsl.dir/RegPool.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/RegPool.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/Compilers/official/RegPool.cpp -o CMakeFiles/cpsl.dir/RegPool.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/RegPool.cpp -o CMakeFiles/cpsl.dir/RegPool.cpp.s
 
 CMakeFiles/cpsl.dir/RegPool.cpp.o.requires:
 
@@ -239,16 +239,16 @@ CMakeFiles/cpsl.dir/RegPool.cpp.o.provides.build: CMakeFiles/cpsl.dir/RegPool.cp
 
 CMakeFiles/cpsl.dir/Expression.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Expression.cpp.o: ../Expression.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/cpsl.dir/Expression.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expression.cpp.o -c /home/braydendstone/Documents/CS5300/Compilers/official/Expression.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/cpsl.dir/Expression.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Expression.cpp.o -c /home/braydendstone/Documents/CS5300/official/Expression.cpp
 
 CMakeFiles/cpsl.dir/Expression.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Expression.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/Compilers/official/Expression.cpp > CMakeFiles/cpsl.dir/Expression.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/Expression.cpp > CMakeFiles/cpsl.dir/Expression.cpp.i
 
 CMakeFiles/cpsl.dir/Expression.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Expression.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/Compilers/official/Expression.cpp -o CMakeFiles/cpsl.dir/Expression.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/Expression.cpp -o CMakeFiles/cpsl.dir/Expression.cpp.s
 
 CMakeFiles/cpsl.dir/Expression.cpp.o.requires:
 
@@ -263,16 +263,16 @@ CMakeFiles/cpsl.dir/Expression.cpp.o.provides.build: CMakeFiles/cpsl.dir/Express
 
 CMakeFiles/cpsl.dir/Types.cpp.o: CMakeFiles/cpsl.dir/flags.make
 CMakeFiles/cpsl.dir/Types.cpp.o: ../Types.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/cpsl.dir/Types.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Types.cpp.o -c /home/braydendstone/Documents/CS5300/Compilers/official/Types.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/cpsl.dir/Types.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/Types.cpp.o -c /home/braydendstone/Documents/CS5300/official/Types.cpp
 
 CMakeFiles/cpsl.dir/Types.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/Types.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/Compilers/official/Types.cpp > CMakeFiles/cpsl.dir/Types.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/Types.cpp > CMakeFiles/cpsl.dir/Types.cpp.i
 
 CMakeFiles/cpsl.dir/Types.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/Types.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/Compilers/official/Types.cpp -o CMakeFiles/cpsl.dir/Types.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/Types.cpp -o CMakeFiles/cpsl.dir/Types.cpp.s
 
 CMakeFiles/cpsl.dir/Types.cpp.o.requires:
 
@@ -285,6 +285,30 @@ CMakeFiles/cpsl.dir/Types.cpp.o.provides: CMakeFiles/cpsl.dir/Types.cpp.o.requir
 CMakeFiles/cpsl.dir/Types.cpp.o.provides.build: CMakeFiles/cpsl.dir/Types.cpp.o
 
 
+CMakeFiles/cpsl.dir/LValue.cpp.o: CMakeFiles/cpsl.dir/flags.make
+CMakeFiles/cpsl.dir/LValue.cpp.o: ../LValue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/cpsl.dir/LValue.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cpsl.dir/LValue.cpp.o -c /home/braydendstone/Documents/CS5300/official/LValue.cpp
+
+CMakeFiles/cpsl.dir/LValue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpsl.dir/LValue.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/braydendstone/Documents/CS5300/official/LValue.cpp > CMakeFiles/cpsl.dir/LValue.cpp.i
+
+CMakeFiles/cpsl.dir/LValue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpsl.dir/LValue.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/braydendstone/Documents/CS5300/official/LValue.cpp -o CMakeFiles/cpsl.dir/LValue.cpp.s
+
+CMakeFiles/cpsl.dir/LValue.cpp.o.requires:
+
+.PHONY : CMakeFiles/cpsl.dir/LValue.cpp.o.requires
+
+CMakeFiles/cpsl.dir/LValue.cpp.o.provides: CMakeFiles/cpsl.dir/LValue.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/LValue.cpp.o.provides.build
+.PHONY : CMakeFiles/cpsl.dir/LValue.cpp.o.provides
+
+CMakeFiles/cpsl.dir/LValue.cpp.o.provides.build: CMakeFiles/cpsl.dir/LValue.cpp.o
+
+
 # Object files for target cpsl
 cpsl_OBJECTS = \
 "CMakeFiles/cpsl.dir/main.cpp.o" \
@@ -295,7 +319,8 @@ cpsl_OBJECTS = \
 "CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o" \
 "CMakeFiles/cpsl.dir/RegPool.cpp.o" \
 "CMakeFiles/cpsl.dir/Expression.cpp.o" \
-"CMakeFiles/cpsl.dir/Types.cpp.o"
+"CMakeFiles/cpsl.dir/Types.cpp.o" \
+"CMakeFiles/cpsl.dir/LValue.cpp.o"
 
 # External object files for target cpsl
 cpsl_EXTERNAL_OBJECTS =
@@ -309,10 +334,11 @@ cpsl: CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o
 cpsl: CMakeFiles/cpsl.dir/RegPool.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Expression.cpp.o
 cpsl: CMakeFiles/cpsl.dir/Types.cpp.o
+cpsl: CMakeFiles/cpsl.dir/LValue.cpp.o
 cpsl: CMakeFiles/cpsl.dir/build.make
 cpsl: /usr/lib/x86_64-linux-gnu/libfl.so
 cpsl: CMakeFiles/cpsl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable cpsl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable cpsl"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cpsl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -329,6 +355,7 @@ CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o.requir
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/RegPool.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Expression.cpp.o.requires
 CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/Types.cpp.o.requires
+CMakeFiles/cpsl.dir/requires: CMakeFiles/cpsl.dir/LValue.cpp.o.requires
 
 .PHONY : CMakeFiles/cpsl.dir/requires
 
@@ -339,6 +366,6 @@ CMakeFiles/cpsl.dir/clean:
 CMakeFiles/cpsl.dir/depend: parser.cpp
 CMakeFiles/cpsl.dir/depend: parser.hpp
 CMakeFiles/cpsl.dir/depend: scanner.cpp
-	cd /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/braydendstone/Documents/CS5300/Compilers/official /home/braydendstone/Documents/CS5300/Compilers/official /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles/cpsl.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/braydendstone/Documents/CS5300/official/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/braydendstone/Documents/CS5300/official /home/braydendstone/Documents/CS5300/official /home/braydendstone/Documents/CS5300/official/cmake-build-debug /home/braydendstone/Documents/CS5300/official/cmake-build-debug /home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles/cpsl.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cpsl.dir/depend
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/braydendstone/Documents/CS5300/Compilers/official
+CMAKE_SOURCE_DIR = /home/braydendstone/Documents/CS5300/official
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug
+CMAKE_BINARY_DIR = /home/braydendstone/Documents/CS5300/official/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles /home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/braydendstone/Documents/CS5300/official/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -176,6 +176,33 @@ GlobalSymbolTable.s: GlobalSymbolTable.cpp.s
 GlobalSymbolTable.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.s
 .PHONY : GlobalSymbolTable.cpp.s
+
+LValue.o: LValue.cpp.o
+
+.PHONY : LValue.o
+
+# target to build an object file
+LValue.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/LValue.cpp.o
+.PHONY : LValue.cpp.o
+
+LValue.i: LValue.cpp.i
+
+.PHONY : LValue.i
+
+# target to preprocess a source file
+LValue.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/LValue.cpp.i
+.PHONY : LValue.cpp.i
+
+LValue.s: LValue.cpp.s
+
+.PHONY : LValue.s
+
+# target to generate assembly for a file
+LValue.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/LValue.cpp.s
+.PHONY : LValue.cpp.s
 
 MainSpace.o: MainSpace.cpp.o
 
@@ -381,6 +408,9 @@ help:
 	@echo "... GlobalSymbolTable.o"
 	@echo "... GlobalSymbolTable.i"
 	@echo "... GlobalSymbolTable.s"
+	@echo "... LValue.o"
+	@echo "... LValue.i"
+	@echo "... LValue.s"
 	@echo "... MainSpace.o"
 	@echo "... MainSpace.i"
 	@echo "... MainSpace.s"

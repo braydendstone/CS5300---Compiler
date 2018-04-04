@@ -8,34 +8,34 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug"/>
+				<Option working_dir="/home/braydendstone/Documents/CS5300/official/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug"/>
+				<Option working_dir="/home/braydendstone/Documents/CS5300/official/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cpsl">
-				<Option output="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/cpsl" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug"/>
+				<Option output="/home/braydendstone/Documents/CS5300/official/cmake-build-debug/cpsl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/braydendstone/Documents/CS5300/official/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug"/>
-					<Add directory="/home/braydendstone/Documents/CS5300/Compilers/official"/>
+					<Add directory="/home/braydendstone/Documents/CS5300/official/cmake-build-debug"/>
+					<Add directory="/home/braydendstone/Documents/CS5300/official"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -46,21 +46,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 cpsl"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 cpsl"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="cpsl/fast">
-				<Option output="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/cpsl" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug"/>
+				<Option output="/home/braydendstone/Documents/CS5300/official/cmake-build-debug/cpsl" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/braydendstone/Documents/CS5300/official/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug"/>
-					<Add directory="/home/braydendstone/Documents/CS5300/Compilers/official"/>
+					<Add directory="/home/braydendstone/Documents/CS5300/official/cmake-build-debug"/>
+					<Add directory="/home/braydendstone/Documents/CS5300/official"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -71,81 +71,87 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 cpsl/fast"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 cpsl/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug"/>
+				<Option working_dir="/home/braydendstone/Documents/CS5300/official/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/braydendstone/Documents/CS5300/official/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/Expression.cpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/Expression.cpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/Expression.h">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/Expression.h">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/GlobalSymbolTable.cpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.cpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/GlobalSymbolTable.h">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/GlobalSymbolTable.h">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/MainSpace.cpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/LValue.cpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/MainSpace.h">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/LValue.h">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/RegPool.cpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/MainSpace.cpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/RegPool.h">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/MainSpace.h">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/Symbol.h">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/RegPool.cpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/SymbolTable.cpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/RegPool.h">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/SymbolTable.h">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/Symbol.h">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/Types.cpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/SymbolTable.cpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/Types.h">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/SymbolTable.h">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/Types.cpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp.rule">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/Types.h">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.hpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp.rule">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp.rule">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.hpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/main.cpp">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp">
 			<Option target="cpsl"/>
 		</Unit>
-		<Unit filename="/home/braydendstone/Documents/CS5300/Compilers/official/CMakeLists.txt">
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp.rule">
+			<Option target="cpsl"/>
+		</Unit>
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/main.cpp">
+			<Option target="cpsl"/>
+		</Unit>
+		<Unit filename="/home/braydendstone/Documents/CS5300/official/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

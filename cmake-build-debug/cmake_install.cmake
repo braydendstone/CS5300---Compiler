@@ -1,4 +1,4 @@
-# Install script for directory: /home/braydendstone/Documents/CS5300/Compilers/official
+# Install script for directory: /home/braydendstone/Documents/CS5300/official
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

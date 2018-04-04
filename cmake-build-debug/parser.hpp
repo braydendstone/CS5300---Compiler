@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_COMPILERS_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED
-# define YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_COMPILERS_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED
+#ifndef YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED
+# define YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -44,10 +44,14 @@ extern int yydebug;
 
 #include <vector>
 #include <string>
+#include <utility>
+#include <map>
+#include <memory>
 #include "Expression.h"
 #include "Types.h"
+#include "LValue.h"
 
-#line 51 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.hpp" /* yacc.c:1909  */
+#line 55 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.hpp" /* yacc.c:1909  */
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
@@ -121,7 +125,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 18 "parser.y" /* yacc.c:1909  */
+#line 22 "parser.y" /* yacc.c:1909  */
 
   char * str_val;
   int int_val;
@@ -130,8 +134,11 @@ union YYSTYPE
   std::vector<Expression*>* exprList;
   std::vector<std::string>* identList;
   Types* type_val;
+  LValue* lvalue;
+  std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramPair;
+  //std::pair<std::string, std::string> stringPair;
 
-#line 135 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.hpp" /* yacc.c:1909  */
+#line 142 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.hpp" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -144,4 +151,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_COMPILERS_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED  */
+#endif /* !YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED  */

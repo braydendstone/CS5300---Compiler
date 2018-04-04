@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cpsl.dir/RegPool.cpp.o"
   "CMakeFiles/cpsl.dir/Expression.cpp.o"
   "CMakeFiles/cpsl.dir/Types.cpp.o"
+  "CMakeFiles/cpsl.dir/LValue.cpp.o"
   "cpsl.pdb"
   "cpsl"
 )

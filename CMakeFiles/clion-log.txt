@@ -1,4 +1,0 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/braydendstone/Documents/CS5300/Compilers/official
--- Configuring done
--- Generating done
--- Build files have been written to: /home/braydendstone/Documents/CS5300/Compilers/official

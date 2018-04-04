@@ -71,7 +71,7 @@
 extern int yylex();
 void yyerror(const char*);
 
-#line 75 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:339  */
+#line 75 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -91,8 +91,8 @@ void yyerror(const char*);
 
 /* In a future release of Bison, this section will be replaced
    by #include "parser.hpp".  */
-#ifndef YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_COMPILERS_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED
-# define YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_COMPILERS_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED
+#ifndef YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED
+# define YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -105,10 +105,14 @@ extern int yydebug;
 
 #include <vector>
 #include <string>
+#include <utility>
+#include <map>
+#include <memory>
 #include "Expression.h"
 #include "Types.h"
+#include "LValue.h"
 
-#line 112 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:355  */
+#line 116 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:355  */
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
@@ -182,7 +186,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 18 "parser.y" /* yacc.c:355  */
+#line 22 "parser.y" /* yacc.c:355  */
 
   char * str_val;
   int int_val;
@@ -191,8 +195,11 @@ union YYSTYPE
   std::vector<Expression*>* exprList;
   std::vector<std::string>* identList;
   Types* type_val;
+  LValue* lvalue;
+  std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramPair;
+  //std::pair<std::string, std::string> stringPair;
 
-#line 196 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:355  */
+#line 203 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -205,11 +212,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_COMPILERS_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED  */
+#endif /* !YY_YY_HOME_BRAYDENDSTONE_DOCUMENTS_CS5300_OFFICIAL_CMAKE_BUILD_DEBUG_PARSER_HPP_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 213 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:358  */
+#line 220 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -451,16 +458,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  8
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   479
+#define YYLAST   488
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  62
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  57
+#define YYNNTS  58
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  120
+#define YYNRULES  121
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  243
+#define YYNSTATES  244
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
@@ -512,19 +519,19 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   140,   140,   143,   145,   146,   149,   150,   153,   156,
-     157,   158,   161,   162,   165,   168,   169,   172,   175,   176,
-     179,   180,   183,   186,   187,   188,   192,   195,   198,   199,
-     202,   203,   206,   207,   210,   213,   214,   215,   218,   221,
-     224,   225,   228,   231,   232,   235,   238,   239,   242,   243,
-     246,   249,   250,   251,   252,   253,   254,   255,   256,   257,
-     258,   259,   262,   265,   268,   271,   274,   275,   278,   281,
-     282,   285,   288,   291,   293,   296,   299,   300,   303,   306,
-     307,   311,   314,   315,   318,   321,   322,   325,   327,   328,
-     330,   331,   334,   335,   336,   337,   338,   339,   340,   341,
-     342,   343,   344,   345,   346,   347,   348,   349,   350,   351,
-     352,   353,   354,   355,   356,   357,   358,   361,   364,   365,
-     366
+       0,   148,   148,   151,   153,   154,   157,   158,   161,   164,
+     165,   166,   169,   170,   173,   176,   177,   180,   183,   184,
+     187,   188,   191,   194,   195,   196,   200,   203,   206,   207,
+     210,   211,   214,   215,   218,   221,   222,   223,   226,   229,
+     232,   233,   236,   239,   240,   243,   246,   247,   250,   251,
+     254,   257,   258,   259,   260,   261,   262,   263,   264,   265,
+     266,   267,   270,   273,   276,   279,   282,   283,   286,   289,
+     290,   293,   296,   299,   301,   303,   306,   309,   310,   313,
+     316,   317,   321,   324,   325,   328,   331,   332,   335,   337,
+     338,   340,   341,   344,   345,   346,   347,   348,   349,   350,
+     351,   352,   353,   354,   355,   356,   357,   358,   359,   360,
+     361,   362,   363,   364,   365,   366,   367,   368,   371,   374,
+     375,   376
 };
 #endif
 
@@ -550,7 +557,7 @@ static const char *const yytname[] =
   "SimpleType", "RecordType", "FieldDecls", "FieldDecl", "IdentList",
   "ArrayType", "OptVarDecls", "VarDecls", "VarDecl", "Statement",
   "Assignment", "IfStatement", "IfHead", "ThenPart", "ElseIfList",
-  "ElseIfHead", "ElseClause", "WhileStatement", "WhileHead",
+  "ElseIfHead", "ElseClause", "WhileStatement", "WhileHead", "WhileStart",
   "RepeatStatement", "ForStatement", "ForHead", "ToHead", "StopStatement",
   "ReturnStatement", "ReadStatement", "ReadArgs", "WriteStatement",
   "WriteArgs", "ProcedureCall", "OptArguments", "Arguments", "Expression",
@@ -587,31 +594,31 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-      -7,    -1,    18,    22,   -18,    46,    -1,  -175,  -175,   122,
-      63,    77,    55,   429,  -175,    87,    86,   429,    88,   122,
-     429,  -175,   429,    97,   -11,  -175,  -175,  -175,    67,  -175,
-     114,  -175,  -175,    -6,  -175,  -175,  -175,  -175,  -175,    93,
-    -175,   109,    77,  -175,   104,  -175,  -175,   107,   108,  -175,
-     429,   429,   429,   111,   112,  -175,   115,   101,  -175,    -2,
-     133,   429,   359,   118,    49,   359,   359,   429,  -175,   122,
-     122,  -175,   122,   429,   429,   132,   429,   121,   429,     7,
-    -175,  -175,    90,   104,  -175,    -9,   429,   429,   151,  -175,
-     391,   429,   429,   429,   429,   429,   429,   429,   429,   429,
-     429,   429,   429,   429,  -175,   429,   429,   429,   429,   103,
-     141,   359,  -175,     6,    -2,   429,    12,   359,  -175,   106,
-      35,     0,   359,   359,   122,   359,  -175,   183,   124,  -175,
-    -175,   110,  -175,  -175,  -175,     7,   130,  -175,   140,   144,
-    -175,   125,  -175,   128,   207,   139,  -175,   239,   271,   303,
-    -175,   415,   415,   415,   415,   415,    89,  -175,  -175,    89,
-     391,   391,   415,   359,  -175,   429,   118,  -175,   359,   429,
-    -175,   429,   122,    67,   159,  -175,     9,  -175,   429,    42,
-    -175,   142,  -175,   158,   162,    47,    52,  -175,  -175,  -175,
-    -175,  -175,   359,    -2,   359,   359,   106,  -175,  -175,  -175,
-      11,  -175,  -175,    96,  -175,   -23,   -23,   145,   -18,   146,
-     148,   149,   429,     7,  -175,  -175,   152,   153,  -175,   104,
-     156,  -175,    55,  -175,  -175,  -175,   335,   157,   179,   -27,
-     100,  -175,    22,   168,  -175,     7,  -175,     7,  -175,     7,
-    -175,  -175,  -175
+      18,    32,    22,    27,     7,    57,    32,  -175,  -175,   431,
+      98,    73,    51,   415,  -175,    85,    87,   415,    89,   431,
+     415,  -175,  -175,    91,   -16,  -175,  -175,  -175,    61,  -175,
+     110,   415,  -175,  -175,    -2,  -175,  -175,  -175,  -175,  -175,
+      94,  -175,   105,    73,  -175,   103,  -175,  -175,   100,   109,
+    -175,   415,   415,   415,   114,   115,  -175,   116,   118,  -175,
+      50,   126,   415,   369,   121,   -28,   369,   415,  -175,   431,
+     431,  -175,   431,   369,   415,   415,   134,   415,   128,   415,
+       5,  -175,  -175,     8,   103,  -175,   -12,   415,   415,   161,
+    -175,    12,   415,   415,   415,   415,   415,   415,   415,   415,
+     415,   415,   415,   415,   415,  -175,   415,   415,   415,   415,
+      92,   145,   369,  -175,     2,    50,   415,     6,   369,  -175,
+     111,    84,   -14,   369,   369,   431,   369,  -175,   193,   136,
+    -175,  -175,   117,  -175,  -175,  -175,     5,   143,  -175,   146,
+     147,  -175,   122,  -175,   133,   217,   127,  -175,   249,   281,
+     313,  -175,   401,   401,   401,   401,   401,    26,  -175,  -175,
+      26,    12,    12,   401,   369,  -175,   415,   121,  -175,   369,
+     415,  -175,   415,   431,    61,   158,  -175,     4,  -175,   415,
+      52,  -175,   135,  -175,   153,   157,    47,    58,  -175,  -175,
+    -175,  -175,  -175,   369,    50,   369,   369,   111,  -175,  -175,
+    -175,   102,  -175,  -175,    93,  -175,   -19,   -19,   139,     7,
+     140,   141,   142,   415,     5,  -175,  -175,   149,   150,  -175,
+     103,   155,  -175,    51,  -175,  -175,  -175,   345,   152,   188,
+     -30,    96,  -175,    27,   167,  -175,     5,  -175,     5,  -175,
+       5,  -175,  -175,  -175
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -620,52 +627,52 @@ static const yytype_int16 yypact[] =
 static const yytype_uint8 yydefact[] =
 {
        5,     0,     0,     0,    31,     0,     4,     7,     1,    61,
-       0,     0,    47,     0,     6,     0,   120,     0,     0,    61,
-      80,    78,     0,     0,     0,    29,    51,    52,     0,    53,
-       0,    54,    55,     0,    56,    57,    58,    59,    60,     0,
-       2,     0,    30,    33,     0,    11,    92,     0,   120,   108,
-       0,     0,     0,     0,     0,   115,     0,     0,   107,   110,
-       0,    89,    64,     0,     0,    79,    72,     0,    27,    61,
-      61,    67,    61,     0,     0,     0,     0,     0,     0,     0,
-      32,    44,     0,    46,    49,     3,     0,    89,     0,   111,
-     112,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     8,     0,     0,     0,     0,     0,
-      88,    91,   120,     0,    83,     0,     0,    86,    28,    65,
-      70,     0,    77,    76,    61,    62,   118,     0,     0,    38,
-      41,     0,    35,    36,    37,     0,     0,    48,     0,     0,
-       9,     0,    10,     0,     0,     0,   109,     0,     0,     0,
-      95,    96,    97,    98,    99,   100,   101,   102,   103,   106,
-      94,   105,   104,    75,    87,     0,     0,    81,    73,     0,
-      84,     0,    61,     0,     0,    71,     0,   119,     0,     0,
-      34,     0,    43,     0,     0,     5,     5,    93,   117,   113,
-     114,   116,    90,    82,    85,    68,    69,    66,    63,    74,
-       0,    39,    40,     0,    50,    19,    19,     0,    31,     0,
-       0,     0,     0,     0,    24,    23,     0,    18,    21,     0,
-       0,    12,    47,    13,    15,    16,     0,     0,     0,    25,
-       0,    14,     0,     0,    42,     0,    20,     0,    26,     0,
-      17,    22,    45
+       0,     0,    47,     0,     6,     0,   121,     0,     0,    61,
+      81,    79,    73,     0,     0,    29,    51,    52,     0,    53,
+       0,     0,    54,    55,     0,    56,    57,    58,    59,    60,
+       0,     2,     0,    30,    33,     0,    11,    93,     0,   121,
+     109,     0,     0,     0,     0,     0,   116,     0,     0,   108,
+     111,     0,    90,    64,     0,     0,    80,     0,    27,    61,
+      61,    67,    61,    72,     0,     0,     0,     0,     0,     0,
+       0,    32,    44,     0,    46,    49,     3,     0,    90,     0,
+     112,   113,     0,     0,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,     8,     0,     0,     0,     0,
+       0,    89,    92,   121,     0,    84,     0,     0,    87,    28,
+      65,    70,     0,    78,    77,    61,    62,   119,     0,     0,
+      38,    41,     0,    35,    36,    37,     0,     0,    48,     0,
+       0,     9,     0,    10,     0,     0,     0,   110,     0,     0,
+       0,    96,    97,    98,    99,   100,   101,   102,   103,   104,
+     107,    95,   106,   105,    76,    88,     0,     0,    82,    74,
+       0,    85,     0,    61,     0,     0,    71,     0,   120,     0,
+       0,    34,     0,    43,     0,     0,     5,     5,    94,   118,
+     114,   115,   117,    91,    83,    86,    68,    69,    66,    63,
+      75,     0,    39,    40,     0,    50,    19,    19,     0,    31,
+       0,     0,     0,     0,     0,    24,    23,     0,    18,    21,
+       0,     0,    12,    47,    13,    15,    16,     0,     0,     0,
+      25,     0,    14,     0,     0,    42,     0,    20,     0,    26,
+       0,    17,    22,    45
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int16 yypgoto[] =
 {
-    -175,  -175,  -175,   191,  -175,   201,  -175,  -175,  -175,  -175,
-    -175,     2,  -175,   -12,  -175,    33,   -10,   -17,    13,  -175,
-     182,  -122,  -175,  -175,  -175,  -175,  -174,  -175,     4,  -175,
-     150,   163,  -175,  -175,  -175,    54,  -175,  -175,  -175,  -175,
+    -175,  -175,  -175,   203,  -175,   199,  -175,  -175,  -175,  -175,
+    -175,    -1,  -175,   -22,  -175,    23,   -24,   -17,     3,  -175,
+     170,  -122,  -175,  -175,  -175,  -175,  -174,  -175,    -9,  -175,
+     148,   160,  -175,  -175,  -175,    43,  -175,  -175,  -175,  -175,
     -175,  -175,  -175,  -175,  -175,  -175,  -175,  -175,  -175,  -175,
-    -175,  -175,   147,  -175,   -13,  -175,     5
+    -175,  -175,  -175,   130,  -175,   -13,  -175,     1
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int16 yydefgoto[] =
 {
-      -1,     2,     3,   208,     6,     7,    85,   140,   141,   142,
-     143,   216,   217,   218,   219,   209,    10,    24,    12,    42,
-      43,   131,   132,   133,   179,   202,    82,   134,    45,    83,
-      84,    25,    26,    27,    28,    71,   120,   173,   174,    29,
-      30,    31,    32,    33,    75,    34,    35,    36,   113,    37,
-     116,    38,   109,   110,   111,    58,    59
+      -1,     2,     3,   209,     6,     7,    86,   141,   142,   143,
+     144,   217,   218,   219,   220,   210,    10,    24,    12,    43,
+      44,   132,   133,   134,   180,   203,    83,   135,    46,    84,
+      85,    25,    26,    27,    28,    71,   121,   174,   175,    29,
+      30,    31,    32,    33,    34,    76,    35,    36,    37,   114,
+      38,   117,    39,   110,   111,   112,    59,    60
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -673,82 +680,84 @@ static const yytype_int16 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int16 yytable[] =
 {
-      57,   -25,    64,     1,    62,   203,    68,    65,    73,    66,
-     128,    77,   138,   181,    39,   166,   214,   175,     8,   212,
-     214,   169,    94,     5,    39,    78,   199,     9,   215,    95,
-     139,   129,   215,    96,    97,    11,    69,    88,    89,    90,
-      98,    99,   100,   101,   102,   230,    74,    69,   103,   130,
-     171,   172,   167,   119,   117,   121,    69,     1,   170,   201,
-     122,   123,     1,   125,    13,   127,    81,   207,   114,   105,
-     106,   107,   210,   144,    39,    39,    40,    39,   147,   148,
+      58,    68,    65,   176,    63,   -25,   204,    66,   129,   139,
+      40,   167,    74,   215,   182,   170,   136,   137,    73,    69,
+      40,   200,     8,    95,   215,   216,   116,   140,     1,   130,
+      96,    69,     9,    69,    97,    98,   216,    95,    89,    90,
+      91,    99,   100,   101,   102,   103,   231,   131,   168,   104,
+      75,    69,   171,   120,   118,   122,     5,     1,   102,   103,
+      11,   123,   124,    78,   126,   115,   128,   208,     1,   202,
+      40,    40,   108,    40,   145,    13,    82,    79,   211,   148,
      149,   150,   151,   152,   153,   154,   155,   156,   157,   158,
-     159,   227,   160,   161,   162,   163,    69,    76,   135,   136,
-      94,    41,   168,   115,   213,   136,    77,   176,   237,   136,
-      44,    60,    94,   240,    61,   241,    63,   242,    70,    95,
-      78,   101,   102,    96,    97,    67,    72,    79,    81,    39,
-      98,    99,   100,   101,   102,    86,    87,   108,   103,    91,
-      92,    15,   112,    93,   124,   126,    16,    17,   104,   164,
-     165,   178,   192,    69,   182,   196,   194,   180,   195,   105,
-     106,   107,    94,    18,   183,   200,    19,    20,   184,    95,
-      21,   193,   185,    96,    97,   186,   198,    39,    22,    23,
-      98,    99,   100,   101,   102,   188,   205,   235,   103,   204,
-     206,     4,   221,   223,    94,   224,   225,   146,   228,   226,
-     229,    95,   231,   239,   234,    96,    97,    14,   220,   105,
-     106,   107,    98,    99,   100,   101,   102,   236,    94,   211,
-     103,   222,   238,   177,    80,    95,   232,   197,     0,    96,
-      97,     0,   118,   137,   145,     0,    98,    99,   100,   101,
-     102,   105,   106,   107,   103,     0,     0,     0,     0,     0,
-      94,     0,     0,   187,     0,     0,     0,    95,     0,     0,
-       0,    96,    97,     0,     0,   105,   106,   107,    98,    99,
-     100,   101,   102,     0,     0,     0,   103,     0,     0,     0,
-       0,     0,    94,     0,     0,   189,     0,     0,     0,    95,
-       0,     0,     0,    96,    97,     0,     0,   105,   106,   107,
-      98,    99,   100,   101,   102,     0,     0,     0,   103,     0,
-       0,     0,     0,     0,    94,     0,     0,   190,     0,     0,
-       0,    95,     0,     0,     0,    96,    97,     0,     0,   105,
-     106,   107,    98,    99,   100,   101,   102,     0,     0,     0,
-     103,     0,     0,     0,     0,     0,    94,     0,     0,   191,
-       0,     0,     0,    95,     0,     0,     0,    96,    97,     0,
-       0,   105,   106,   107,    98,    99,   100,   101,   102,     0,
-      94,     0,   103,     0,     0,   233,     0,    95,     0,     0,
-       0,    96,    97,     0,     0,     0,     0,     0,    98,    99,
-     100,   101,   102,   105,   106,   107,   103,     0,     0,     0,
-       0,     0,    94,     0,     0,     0,     0,     0,     0,    95,
-       0,     0,     0,    96,    97,     0,     0,   105,   106,   107,
-      98,    99,   100,   101,   102,     0,    94,     0,   103,     0,
-       0,     0,     0,   -26,     0,    46,    47,   -26,   -26,     0,
-       0,     0,     0,     0,   -26,   -26,   100,   101,   102,     0,
-       0,   107,   103,    48,     0,    49,     0,    50,     0,     0,
-      51,     0,     0,    52,     0,    53,     0,    54,     0,     0,
-       0,     0,     0,     0,     0,   -26,     0,     0,    55,    56
+     159,   160,   228,   161,   162,   163,   164,    42,    77,   172,
+     173,   214,   137,   169,   238,   137,    45,    78,   177,    61,
+     213,    41,    70,    95,   241,    62,   242,    64,   243,    67,
+      96,    79,    72,    80,    97,    98,    40,    82,    87,    95,
+     109,    99,   100,   101,   102,   103,    96,    88,   165,   104,
+      97,    98,    92,    93,    94,   113,   125,    99,   100,   101,
+     102,   103,   127,   193,   166,   104,   197,   195,    69,   196,
+     106,   107,   108,   179,   181,   105,   201,   183,   194,   186,
+     184,   185,    95,   189,    40,   199,   106,   107,   108,    96,
+     187,   206,   205,    97,    98,   207,   222,   224,   225,   226,
+      99,   100,   101,   102,   103,   229,   236,   230,   104,   235,
+     227,   232,   240,     4,    95,    14,   221,   147,   237,   239,
+     212,    96,   223,    81,   233,    97,    98,   198,   146,   106,
+     107,   108,    99,   100,   101,   102,   103,     0,    95,   119,
+     104,     0,   138,   178,     0,    96,     0,     0,     0,    97,
+      98,     0,     0,     0,     0,     0,    99,   100,   101,   102,
+     103,   106,   107,   108,   104,     0,     0,     0,     0,     0,
+      95,     0,     0,   188,     0,     0,     0,    96,     0,     0,
+       0,    97,    98,     0,     0,   106,   107,   108,    99,   100,
+     101,   102,   103,     0,     0,     0,   104,     0,     0,     0,
+       0,     0,    95,     0,     0,   190,     0,     0,     0,    96,
+       0,     0,     0,    97,    98,     0,     0,   106,   107,   108,
+      99,   100,   101,   102,   103,     0,     0,     0,   104,     0,
+       0,     0,     0,     0,    95,     0,     0,   191,     0,     0,
+       0,    96,     0,     0,     0,    97,    98,     0,     0,   106,
+     107,   108,    99,   100,   101,   102,   103,     0,     0,     0,
+     104,     0,     0,     0,     0,     0,    95,     0,     0,   192,
+       0,     0,     0,    96,     0,     0,     0,    97,    98,     0,
+       0,   106,   107,   108,    99,   100,   101,   102,   103,     0,
+      95,     0,   104,     0,     0,   234,     0,    96,     0,     0,
+       0,    97,    98,     0,     0,     0,     0,     0,    99,   100,
+     101,   102,   103,   106,   107,   108,   104,     0,     0,     0,
+       0,     0,    95,     0,     0,     0,     0,     0,     0,   -26,
+       0,    47,    48,   -26,   -26,     0,     0,   106,   107,   108,
+     -26,   -26,   101,   102,   103,     0,     0,     0,   104,    49,
+       0,    50,     0,    51,     0,     0,    52,     0,     0,    53,
+      15,    54,     0,    55,     0,    16,    17,     0,     0,     0,
+       0,   -26,     0,     0,    56,    57,     0,     0,     0,     0,
+       0,     0,    18,     0,     0,    19,    20,     0,     0,    21,
+       0,     0,     0,     0,     0,     0,     0,    22,    23
 };
 
 static const yytype_int16 yycheck[] =
 {
-      13,    24,    19,    10,    17,   179,    17,    20,    14,    22,
-       3,    13,    21,   135,     9,     9,    43,    17,     0,     8,
-      43,     9,    11,    24,    19,    27,    17,     5,    55,    18,
-      39,    24,    55,    22,    23,    53,    47,    50,    51,    52,
-      29,    30,    31,    32,    33,   219,    52,    47,    37,    42,
-      15,    16,    46,    70,    67,    72,    47,    10,    46,    17,
-      73,    74,    10,    76,    18,    78,    24,    20,    63,    58,
-      59,    60,    20,    86,    69,    70,    13,    72,    91,    92,
+      13,    17,    19,    17,    17,    24,   180,    20,     3,    21,
+       9,     9,    14,    43,   136,     9,     8,     9,    31,    47,
+      19,    17,     0,    11,    43,    55,    54,    39,    10,    24,
+      18,    47,     5,    47,    22,    23,    55,    11,    51,    52,
+      53,    29,    30,    31,    32,    33,   220,    42,    46,    37,
+      52,    47,    46,    70,    67,    72,    24,    10,    32,    33,
+      53,    74,    75,    13,    77,    64,    79,    20,    10,    17,
+      69,    70,    60,    72,    87,    18,    24,    27,    20,    92,
       93,    94,    95,    96,    97,    98,    99,   100,   101,   102,
-     103,   213,   105,   106,   107,   108,    47,     4,     8,     9,
-      11,    24,   115,    54,     8,     9,    13,   124,     8,     9,
-      55,    24,    11,   235,    28,   237,    28,   239,    51,    18,
-      27,    32,    33,    22,    23,    28,    12,    18,    24,   124,
-      29,    30,    31,    32,    33,    28,    28,     4,    37,    28,
-      28,    19,    24,    28,    12,    24,    24,    25,    47,    46,
-       9,    27,   165,    47,    24,   172,   169,    47,   171,    58,
-      59,    60,    11,    41,    24,   178,    44,    45,    24,    18,
-      48,   166,    47,    22,    23,    47,    17,   172,    56,    57,
-      29,    30,    31,    32,    33,    46,    28,     8,    37,    47,
-      28,     0,    47,    47,    11,    47,    47,    46,    46,   212,
-      47,    18,    46,    35,    47,    22,    23,     6,   206,    58,
-      59,    60,    29,    30,    31,    32,    33,   229,    11,   186,
-      37,   208,   232,    40,    42,    18,   222,   173,    -1,    22,
-      23,    -1,    69,    83,    87,    -1,    29,    30,    31,    32,
+     103,   104,   214,   106,   107,   108,   109,    24,     4,    15,
+      16,     8,     9,   116,     8,     9,    55,    13,   125,    24,
+       8,    13,    51,    11,   236,    28,   238,    28,   240,    28,
+      18,    27,    12,    18,    22,    23,   125,    24,    28,    11,
+       4,    29,    30,    31,    32,    33,    18,    28,    46,    37,
+      22,    23,    28,    28,    28,    24,    12,    29,    30,    31,
+      32,    33,    24,   166,     9,    37,   173,   170,    47,   172,
+      58,    59,    60,    27,    47,    47,   179,    24,   167,    47,
+      24,    24,    11,    46,   173,    17,    58,    59,    60,    18,
+      47,    28,    47,    22,    23,    28,    47,    47,    47,    47,
+      29,    30,    31,    32,    33,    46,     8,    47,    37,    47,
+     213,    46,    35,     0,    11,     6,   207,    46,   230,   233,
+     187,    18,   209,    43,   223,    22,    23,   174,    88,    58,
+      59,    60,    29,    30,    31,    32,    33,    -1,    11,    69,
+      37,    -1,    84,    40,    -1,    18,    -1,    -1,    -1,    22,
+      23,    -1,    -1,    -1,    -1,    -1,    29,    30,    31,    32,
       33,    58,    59,    60,    37,    -1,    -1,    -1,    -1,    -1,
       11,    -1,    -1,    46,    -1,    -1,    -1,    18,    -1,    -1,
       -1,    22,    23,    -1,    -1,    58,    59,    60,    29,    30,
@@ -766,13 +775,13 @@ static const yytype_int16 yycheck[] =
       -1,    22,    23,    -1,    -1,    -1,    -1,    -1,    29,    30,
       31,    32,    33,    58,    59,    60,    37,    -1,    -1,    -1,
       -1,    -1,    11,    -1,    -1,    -1,    -1,    -1,    -1,    18,
-      -1,    -1,    -1,    22,    23,    -1,    -1,    58,    59,    60,
-      29,    30,    31,    32,    33,    -1,    11,    -1,    37,    -1,
-      -1,    -1,    -1,    18,    -1,     6,     7,    22,    23,    -1,
-      -1,    -1,    -1,    -1,    29,    30,    31,    32,    33,    -1,
-      -1,    60,    37,    24,    -1,    26,    -1,    28,    -1,    -1,
-      31,    -1,    -1,    34,    -1,    36,    -1,    38,    -1,    -1,
-      -1,    -1,    -1,    -1,    -1,    60,    -1,    -1,    49,    50
+      -1,     6,     7,    22,    23,    -1,    -1,    58,    59,    60,
+      29,    30,    31,    32,    33,    -1,    -1,    -1,    37,    24,
+      -1,    26,    -1,    28,    -1,    -1,    31,    -1,    -1,    34,
+      19,    36,    -1,    38,    -1,    24,    25,    -1,    -1,    -1,
+      -1,    60,    -1,    -1,    49,    50,    -1,    -1,    -1,    -1,
+      -1,    -1,    41,    -1,    -1,    44,    45,    -1,    -1,    48,
+      -1,    -1,    -1,    -1,    -1,    -1,    -1,    56,    57
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -782,28 +791,28 @@ static const yytype_uint8 yystos[] =
        0,    10,    63,    64,    65,    24,    66,    67,     0,     5,
       78,    53,    80,    18,    67,    19,    24,    25,    41,    44,
       45,    48,    56,    57,    79,    93,    94,    95,    96,   101,
-     102,   103,   104,   105,   107,   108,   109,   111,   113,   118,
-      13,    24,    81,    82,    55,    90,     6,     7,    24,    26,
-      28,    31,    34,    36,    38,    49,    50,   116,   117,   118,
-      24,    28,   116,    28,    79,   116,   116,    28,    17,    47,
-      51,    97,    12,    14,    52,   106,     4,    13,    27,    18,
-      82,    24,    88,    91,    92,    68,    28,    28,   116,   116,
-     116,    28,    28,    28,    11,    18,    22,    23,    29,    30,
-      31,    32,    33,    37,    47,    58,    59,    60,     4,   114,
-     115,   116,    24,   110,   118,    54,   112,   116,    93,    79,
-      98,    79,   116,   116,    12,   116,    24,   116,     3,    24,
-      42,    83,    84,    85,    89,     8,     9,    92,    21,    39,
-      69,    70,    71,    72,   116,   114,    46,   116,   116,   116,
-     116,   116,   116,   116,   116,   116,   116,   116,   116,   116,
-     116,   116,   116,   116,    46,     9,     9,    46,   116,     9,
-      46,    15,    16,    99,   100,    17,    79,    40,    27,    86,
-      47,    83,    24,    24,    24,    47,    47,    46,    46,    46,
-      46,    46,   116,   118,   116,   116,    79,    97,    17,    17,
-     116,    17,    87,    88,    47,    28,    28,    20,    65,    77,
-      20,    77,     8,     8,    43,    55,    73,    74,    75,    76,
-      73,    47,    80,    47,    47,    47,   116,    83,    46,    47,
-      88,    46,    90,    40,    47,     8,    75,     8,    78,    35,
-      83,    83,    83
+     102,   103,   104,   105,   106,   108,   109,   110,   112,   114,
+     119,    13,    24,    81,    82,    55,    90,     6,     7,    24,
+      26,    28,    31,    34,    36,    38,    49,    50,   117,   118,
+     119,    24,    28,   117,    28,    79,   117,    28,    17,    47,
+      51,    97,    12,   117,    14,    52,   107,     4,    13,    27,
+      18,    82,    24,    88,    91,    92,    68,    28,    28,   117,
+     117,   117,    28,    28,    28,    11,    18,    22,    23,    29,
+      30,    31,    32,    33,    37,    47,    58,    59,    60,     4,
+     115,   116,   117,    24,   111,   119,    54,   113,   117,    93,
+      79,    98,    79,   117,   117,    12,   117,    24,   117,     3,
+      24,    42,    83,    84,    85,    89,     8,     9,    92,    21,
+      39,    69,    70,    71,    72,   117,   115,    46,   117,   117,
+     117,   117,   117,   117,   117,   117,   117,   117,   117,   117,
+     117,   117,   117,   117,   117,    46,     9,     9,    46,   117,
+       9,    46,    15,    16,    99,   100,    17,    79,    40,    27,
+      86,    47,    83,    24,    24,    24,    47,    47,    46,    46,
+      46,    46,    46,   117,   119,   117,   117,    79,    97,    17,
+      17,   117,    17,    87,    88,    47,    28,    28,    20,    65,
+      77,    20,    77,     8,     8,    43,    55,    73,    74,    75,
+      76,    73,    47,    80,    47,    47,    47,   117,    83,    46,
+      47,    88,    46,    90,    40,    47,     8,    75,     8,    78,
+      35,    83,    83,    83
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
@@ -816,12 +825,12 @@ static const yytype_uint8 yyr1[] =
       86,    86,    87,    88,    88,    89,    90,    90,    91,    91,
       92,    93,    93,    93,    93,    93,    93,    93,    93,    93,
       93,    93,    94,    95,    96,    97,    98,    98,    99,   100,
-     100,   101,   102,   103,   104,   105,   106,   106,   107,   108,
-     108,   109,   110,   110,   111,   112,   112,   113,   114,   114,
-     115,   115,   116,   116,   116,   116,   116,   116,   116,   116,
-     116,   116,   116,   116,   116,   116,   116,   116,   116,   116,
-     116,   116,   116,   116,   116,   116,   116,   117,   118,   118,
-     118
+     100,   101,   102,   103,   104,   105,   106,   107,   107,   108,
+     109,   109,   110,   111,   111,   112,   113,   113,   114,   115,
+     115,   116,   116,   117,   117,   117,   117,   117,   117,   117,
+     117,   117,   117,   117,   117,   117,   117,   117,   117,   117,
+     117,   117,   117,   117,   117,   117,   117,   117,   118,   119,
+     119,   119
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
@@ -834,12 +843,12 @@ static const yytype_uint8 yyr2[] =
        2,     0,     4,     3,     1,     8,     2,     0,     2,     1,
        4,     1,     1,     1,     1,     1,     1,     1,     1,     1,
        1,     0,     3,     5,     2,     2,     3,     0,     2,     2,
-       0,     4,     2,     4,     5,     4,     2,     2,     1,     2,
-       1,     4,     3,     1,     4,     3,     1,     4,     1,     0,
-       3,     1,     1,     4,     3,     3,     3,     3,     3,     3,
-       3,     3,     3,     3,     3,     3,     3,     1,     1,     3,
-       1,     2,     2,     4,     4,     1,     4,     4,     3,     4,
-       1
+       0,     4,     2,     1,     4,     5,     4,     2,     2,     1,
+       2,     1,     4,     3,     1,     4,     3,     1,     4,     1,
+       0,     3,     1,     1,     4,     3,     3,     3,     3,     3,
+       3,     3,     3,     3,     3,     3,     3,     3,     1,     1,
+       3,     1,     2,     2,     4,     4,     1,     4,     4,     3,
+       4,     1
 };
 
 
@@ -1516,625 +1525,631 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 140 "parser.y" /* yacc.c:1646  */
+#line 148 "parser.y" /* yacc.c:1646  */
     { MainSpace::start((yyvsp[-1].int_val)); }
-#line 1522 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1531 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 153 "parser.y" /* yacc.c:1646  */
+#line 161 "parser.y" /* yacc.c:1646  */
     { MainSpace::insertConst((yyvsp[-3].str_val), (yyvsp[-1].expr)); }
-#line 1528 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1537 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 161 "parser.y" /* yacc.c:1646  */
+#line 169 "parser.y" /* yacc.c:1646  */
     {}
-#line 1534 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1543 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 162 "parser.y" /* yacc.c:1646  */
+#line 170 "parser.y" /* yacc.c:1646  */
     {}
-#line 1540 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1549 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 165 "parser.y" /* yacc.c:1646  */
+#line 173 "parser.y" /* yacc.c:1646  */
     {}
-#line 1546 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1555 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 168 "parser.y" /* yacc.c:1646  */
+#line 176 "parser.y" /* yacc.c:1646  */
     {}
-#line 1552 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1561 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 169 "parser.y" /* yacc.c:1646  */
+#line 177 "parser.y" /* yacc.c:1646  */
     {}
-#line 1558 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1567 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 172 "parser.y" /* yacc.c:1646  */
+#line 180 "parser.y" /* yacc.c:1646  */
     {}
-#line 1564 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1573 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 175 "parser.y" /* yacc.c:1646  */
+#line 183 "parser.y" /* yacc.c:1646  */
     {}
-#line 1570 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1579 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 176 "parser.y" /* yacc.c:1646  */
+#line 184 "parser.y" /* yacc.c:1646  */
     {}
-#line 1576 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1585 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 179 "parser.y" /* yacc.c:1646  */
+#line 187 "parser.y" /* yacc.c:1646  */
     {}
-#line 1582 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1591 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 180 "parser.y" /* yacc.c:1646  */
+#line 188 "parser.y" /* yacc.c:1646  */
     {}
-#line 1588 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1597 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 22:
-#line 183 "parser.y" /* yacc.c:1646  */
+#line 191 "parser.y" /* yacc.c:1646  */
     {}
-#line 1594 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1603 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 186 "parser.y" /* yacc.c:1646  */
+#line 194 "parser.y" /* yacc.c:1646  */
     {}
-#line 1600 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1609 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 187 "parser.y" /* yacc.c:1646  */
+#line 195 "parser.y" /* yacc.c:1646  */
     {}
-#line 1606 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1615 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 188 "parser.y" /* yacc.c:1646  */
+#line 196 "parser.y" /* yacc.c:1646  */
     {}
-#line 1612 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1621 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 192 "parser.y" /* yacc.c:1646  */
+#line 200 "parser.y" /* yacc.c:1646  */
     {}
-#line 1618 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1627 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 195 "parser.y" /* yacc.c:1646  */
+#line 203 "parser.y" /* yacc.c:1646  */
     { (yyval.int_val) = (yyvsp[-1].int_val); }
-#line 1624 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1633 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 198 "parser.y" /* yacc.c:1646  */
+#line 206 "parser.y" /* yacc.c:1646  */
     {}
-#line 1630 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1639 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 199 "parser.y" /* yacc.c:1646  */
+#line 207 "parser.y" /* yacc.c:1646  */
     {}
-#line 1636 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1645 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 210 "parser.y" /* yacc.c:1646  */
+#line 218 "parser.y" /* yacc.c:1646  */
     { MainSpace::insertType((yyvsp[-3].str_val), (yyvsp[-1].type_val)); }
-#line 1642 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1651 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 213 "parser.y" /* yacc.c:1646  */
+#line 221 "parser.y" /* yacc.c:1646  */
     { (yyval.type_val) = (yyvsp[0].type_val); }
-#line 1648 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1657 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 214 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1654 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 222 "parser.y" /* yacc.c:1646  */
+    { (yyval.type_val) = (yyvsp[0].type_val); }
+#line 1663 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 215 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1660 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 223 "parser.y" /* yacc.c:1646  */
+    { (yyval.type_val) = (yyvsp[0].type_val); }
+#line 1669 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 218 "parser.y" /* yacc.c:1646  */
-    { (yyval.type_val) = MainSpace::obtainType((yyvsp[0].str_val)); }
-#line 1666 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 226 "parser.y" /* yacc.c:1646  */
+    { (yyval.type_val) = MainSpace::simpleType((yyvsp[0].str_val)); }
+#line 1675 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 221 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1672 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 229 "parser.y" /* yacc.c:1646  */
+    { (yyval.type_val) = MainSpace::recordType((yyvsp[-1].paramPair)); }
+#line 1681 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 224 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1678 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 232 "parser.y" /* yacc.c:1646  */
+    { (yyval.paramPair) = MainSpace::addFieldList((yyvsp[-1].paramPair), (yyvsp[0].paramPair)); }
+#line 1687 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 225 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1684 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 233 "parser.y" /* yacc.c:1646  */
+    { (yyval.paramPair) = nullptr; }
+#line 1693 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 228 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1690 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 236 "parser.y" /* yacc.c:1646  */
+    { (yyval.paramPair) = MainSpace::addField((yyvsp[-3].identList), (yyvsp[-1].type_val)); }
+#line 1699 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 231 "parser.y" /* yacc.c:1646  */
+#line 239 "parser.y" /* yacc.c:1646  */
     { (yyval.identList) = MainSpace::identList((yyvsp[-2].identList), (yyvsp[0].str_val)); }
-#line 1696 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1705 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 232 "parser.y" /* yacc.c:1646  */
+#line 240 "parser.y" /* yacc.c:1646  */
     { (yyval.identList) = MainSpace::identList(nullptr, (yyvsp[0].str_val));  }
-#line 1702 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1711 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 235 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1708 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 243 "parser.y" /* yacc.c:1646  */
+    { (yyval.type_val) = MainSpace::arrayType((yyvsp[-5].expr), (yyvsp[-3].expr), (yyvsp[0].type_val)); }
+#line 1717 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 246 "parser.y" /* yacc.c:1646  */
+#line 254 "parser.y" /* yacc.c:1646  */
     { MainSpace::insertVar((yyvsp[-3].identList), (yyvsp[-1].type_val)); }
-#line 1714 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1723 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 249 "parser.y" /* yacc.c:1646  */
+#line 257 "parser.y" /* yacc.c:1646  */
     {}
-#line 1720 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1729 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 250 "parser.y" /* yacc.c:1646  */
+#line 258 "parser.y" /* yacc.c:1646  */
     {}
-#line 1726 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1735 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 251 "parser.y" /* yacc.c:1646  */
+#line 259 "parser.y" /* yacc.c:1646  */
     {}
-#line 1732 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1741 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 252 "parser.y" /* yacc.c:1646  */
+#line 260 "parser.y" /* yacc.c:1646  */
     {}
-#line 1738 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1747 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 55:
-#line 253 "parser.y" /* yacc.c:1646  */
+#line 261 "parser.y" /* yacc.c:1646  */
     {}
-#line 1744 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1753 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 56:
-#line 254 "parser.y" /* yacc.c:1646  */
+#line 262 "parser.y" /* yacc.c:1646  */
     {}
-#line 1750 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1759 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 255 "parser.y" /* yacc.c:1646  */
+#line 263 "parser.y" /* yacc.c:1646  */
     {}
-#line 1756 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1765 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 58:
-#line 256 "parser.y" /* yacc.c:1646  */
+#line 264 "parser.y" /* yacc.c:1646  */
     {}
-#line 1762 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1771 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 59:
-#line 257 "parser.y" /* yacc.c:1646  */
+#line 265 "parser.y" /* yacc.c:1646  */
     {}
-#line 1768 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1777 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 60:
-#line 258 "parser.y" /* yacc.c:1646  */
+#line 266 "parser.y" /* yacc.c:1646  */
     {}
-#line 1774 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1783 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 61:
-#line 259 "parser.y" /* yacc.c:1646  */
+#line 267 "parser.y" /* yacc.c:1646  */
     {}
-#line 1780 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1789 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 62:
-#line 262 "parser.y" /* yacc.c:1646  */
-    { MainSpace::assign((yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 1786 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 270 "parser.y" /* yacc.c:1646  */
+    { MainSpace::assign((yyvsp[-2].lvalue), (yyvsp[0].expr)); }
+#line 1795 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 63:
-#line 265 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1792 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 273 "parser.y" /* yacc.c:1646  */
+    { /* MainSpace::endIf($2); /* write out final label */ }
+#line 1801 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 64:
-#line 268 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1798 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 276 "parser.y" /* yacc.c:1646  */
+    { /* $$ = MainSpace::ifExpr($2);  return a pair, the final label and else branch label, write out condition and "bne else", then conditions */ }
+#line 1807 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 65:
-#line 271 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1804 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 279 "parser.y" /* yacc.c:1646  */
+    { /* $$ = MainSpace::ifExprEnd();  output a jump to the final label, make else label, return final label */ }
+#line 1813 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 66:
-#line 274 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1810 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 282 "parser.y" /* yacc.c:1646  */
+    { /* write out statement list and j final, then next else if, return final label */}
+#line 1819 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 67:
-#line 275 "parser.y" /* yacc.c:1646  */
+#line 283 "parser.y" /* yacc.c:1646  */
     {}
-#line 1816 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1825 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 68:
-#line 278 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1822 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 286 "parser.y" /* yacc.c:1646  */
+    { /* write out condition and bne to final label, return the pair of final label and else */ }
+#line 1831 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 69:
-#line 281 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1828 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 289 "parser.y" /* yacc.c:1646  */
+    { /* return the final label, write out the statement list and j final */ }
+#line 1837 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 70:
-#line 282 "parser.y" /* yacc.c:1646  */
+#line 290 "parser.y" /* yacc.c:1646  */
     {}
-#line 1834 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1843 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 71:
-#line 285 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1840 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 293 "parser.y" /* yacc.c:1646  */
+    { MainSpace::endWhile((yyvsp[-3].int_val)); /* print statements, jump, and then end label */ }
+#line 1849 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 72:
-#line 288 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1846 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 296 "parser.y" /* yacc.c:1646  */
+    { (yyval.int_val) = MainSpace::whileHead((yyvsp[0].expr)); /* print condition and branch, return counter for end label */}
+#line 1855 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 73:
-#line 291 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1852 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 299 "parser.y" /* yacc.c:1646  */
+    { MainSpace::startWhile(); }
+#line 1861 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 74:
-#line 293 "parser.y" /* yacc.c:1646  */
+#line 301 "parser.y" /* yacc.c:1646  */
     {}
-#line 1858 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1867 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 75:
-#line 296 "parser.y" /* yacc.c:1646  */
+#line 303 "parser.y" /* yacc.c:1646  */
     {}
-#line 1864 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1873 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 76:
-#line 299 "parser.y" /* yacc.c:1646  */
+#line 306 "parser.y" /* yacc.c:1646  */
     {}
-#line 1870 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1879 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 77:
-#line 300 "parser.y" /* yacc.c:1646  */
+#line 309 "parser.y" /* yacc.c:1646  */
     {}
-#line 1876 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1885 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 78:
-#line 303 "parser.y" /* yacc.c:1646  */
-    { MainSpace::stopProgram(); }
-#line 1882 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 310 "parser.y" /* yacc.c:1646  */
+    {}
+#line 1891 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 79:
-#line 306 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1888 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 313 "parser.y" /* yacc.c:1646  */
+    { MainSpace::stopProgram(); }
+#line 1897 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 80:
-#line 307 "parser.y" /* yacc.c:1646  */
+#line 316 "parser.y" /* yacc.c:1646  */
     {}
-#line 1894 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1903 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 81:
-#line 311 "parser.y" /* yacc.c:1646  */
-    { MainSpace::read((yyvsp[-1].exprList)); }
-#line 1900 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 317 "parser.y" /* yacc.c:1646  */
+    {}
+#line 1909 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 82:
-#line 314 "parser.y" /* yacc.c:1646  */
-    { (yyval.exprList) = MainSpace::exprList((yyvsp[-2].exprList), (yyvsp[0].expr)); }
-#line 1906 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 321 "parser.y" /* yacc.c:1646  */
+    { MainSpace::read((yyvsp[-1].exprList)); }
+#line 1915 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 83:
-#line 315 "parser.y" /* yacc.c:1646  */
-    { (yyval.exprList) = MainSpace::exprList(nullptr, (yyvsp[0].expr)); }
-#line 1912 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 324 "parser.y" /* yacc.c:1646  */
+    { (yyval.exprList) = MainSpace::exprList((yyvsp[-2].exprList), (yyvsp[0].lvalue)); }
+#line 1921 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 84:
-#line 318 "parser.y" /* yacc.c:1646  */
-    { MainSpace::write((yyvsp[-1].exprList)); }
-#line 1918 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 325 "parser.y" /* yacc.c:1646  */
+    { (yyval.exprList) = MainSpace::exprList(nullptr, (yyvsp[0].lvalue)); }
+#line 1927 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 85:
-#line 321 "parser.y" /* yacc.c:1646  */
-    { (yyval.exprList) = MainSpace::exprList((yyvsp[-2].exprList), (yyvsp[0].expr)); }
-#line 1924 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 328 "parser.y" /* yacc.c:1646  */
+    { MainSpace::write((yyvsp[-1].exprList)); }
+#line 1933 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 86:
-#line 322 "parser.y" /* yacc.c:1646  */
-    { (yyval.exprList) = MainSpace::exprList(nullptr, (yyvsp[0].expr)); }
-#line 1930 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 331 "parser.y" /* yacc.c:1646  */
+    { (yyval.exprList) = MainSpace::exprList((yyvsp[-2].exprList), (yyvsp[0].expr)); }
+#line 1939 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 87:
-#line 325 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1936 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 332 "parser.y" /* yacc.c:1646  */
+    { (yyval.exprList) = MainSpace::exprList(nullptr, (yyvsp[0].expr)); }
+#line 1945 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 88:
-#line 327 "parser.y" /* yacc.c:1646  */
+#line 335 "parser.y" /* yacc.c:1646  */
     {}
-#line 1942 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1951 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 89:
-#line 328 "parser.y" /* yacc.c:1646  */
+#line 337 "parser.y" /* yacc.c:1646  */
     {}
-#line 1948 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1957 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 90:
-#line 330 "parser.y" /* yacc.c:1646  */
+#line 338 "parser.y" /* yacc.c:1646  */
     {}
-#line 1954 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1963 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 91:
-#line 331 "parser.y" /* yacc.c:1646  */
+#line 340 "parser.y" /* yacc.c:1646  */
     {}
-#line 1960 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 1969 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 92:
-#line 334 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::charExpr((yyvsp[0].char_val)); }
-#line 1966 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 341 "parser.y" /* yacc.c:1646  */
+    {}
+#line 1975 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 93:
-#line 335 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1972 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 344 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::charExpr((yyvsp[0].char_val)); }
+#line 1981 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 94:
-#line 336 "parser.y" /* yacc.c:1646  */
-    {}
-#line 1978 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 345 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::chrConvert((yyvsp[-1].expr)); }
+#line 1987 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 95:
-#line 337 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("div", (yyvsp[-2].expr), (yyvsp[0].expr));}
-#line 1984 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 346 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("and", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 1993 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 96:
-#line 338 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("seq", (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 1990 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 347 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("div", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 1999 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 97:
-#line 339 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("sge", (yyvsp[-2].expr), (yyvsp[0].expr));}
-#line 1996 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 348 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("seq", (yyvsp[-2].expr), (yyvsp[0].expr)); }
+#line 2005 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 98:
-#line 340 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("sgt", (yyvsp[-2].expr), (yyvsp[0].expr));}
-#line 2002 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 349 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("sge", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 2011 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 99:
-#line 341 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("sle", (yyvsp[-2].expr), (yyvsp[0].expr));}
-#line 2008 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 350 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("sgt", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 2017 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 100:
-#line 342 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("slt", (yyvsp[-2].expr), (yyvsp[0].expr));}
-#line 2014 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 351 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("sle", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 2023 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 101:
-#line 343 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("sub", (yyvsp[-2].expr), (yyvsp[0].expr));}
-#line 2020 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 352 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("slt", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 2029 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 102:
-#line 344 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("mod", (yyvsp[-2].expr), (yyvsp[0].expr));}
-#line 2026 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 353 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("sub", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 2035 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 103:
-#line 345 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("mult", (yyvsp[-2].expr), (yyvsp[0].expr));}
-#line 2032 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 354 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("rem", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 2041 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 104:
-#line 346 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("neq", (yyvsp[-2].expr), (yyvsp[0].expr));}
-#line 2038 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 355 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("mul", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 2047 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 105:
-#line 347 "parser.y" /* yacc.c:1646  */
-    {}
-#line 2044 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 356 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("sne", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 2053 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 106:
-#line 348 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::binaryop("add", (yyvsp[-2].expr), (yyvsp[0].expr)); }
-#line 2050 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 357 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("or", (yyvsp[-2].expr), (yyvsp[0].expr));}
+#line 2059 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 107:
-#line 349 "parser.y" /* yacc.c:1646  */
-    {}
-#line 2056 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 358 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::binaryop("add", (yyvsp[-2].expr), (yyvsp[0].expr)); }
+#line 2065 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 108:
-#line 350 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::intExpr((yyvsp[0].int_val)); }
-#line 2062 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 359 "parser.y" /* yacc.c:1646  */
+    {}
+#line 2071 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 109:
-#line 351 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = (yyvsp[-1].expr); }
-#line 2068 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 360 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::intExpr((yyvsp[0].int_val)); }
+#line 2077 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 110:
-#line 352 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = (yyvsp[0].expr); }
-#line 2074 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 361 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = (yyvsp[-1].expr); }
+#line 2083 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 111:
-#line 353 "parser.y" /* yacc.c:1646  */
-    {}
-#line 2080 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 362 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::lValToExpr((yyvsp[0].lvalue)); }
+#line 2089 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 112:
-#line 354 "parser.y" /* yacc.c:1646  */
-    {}
-#line 2086 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 363 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::minusExpr((yyvsp[0].expr)); }
+#line 2095 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 113:
-#line 355 "parser.y" /* yacc.c:1646  */
+#line 364 "parser.y" /* yacc.c:1646  */
     {}
-#line 2092 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 2101 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 114:
-#line 356 "parser.y" /* yacc.c:1646  */
-    {}
-#line 2098 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 365 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::ordConvert((yyvsp[-1].expr)); }
+#line 2107 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 115:
-#line 357 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::strExpr((yyvsp[0].str_val)); }
-#line 2104 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 366 "parser.y" /* yacc.c:1646  */
+    {}
+#line 2113 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 116:
-#line 358 "parser.y" /* yacc.c:1646  */
-    {}
-#line 2110 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 367 "parser.y" /* yacc.c:1646  */
+    { (yyval.expr) = MainSpace::strExpr((yyvsp[0].str_val)); }
+#line 2119 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 117:
-#line 361 "parser.y" /* yacc.c:1646  */
+#line 368 "parser.y" /* yacc.c:1646  */
     {}
-#line 2116 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 2125 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 118:
-#line 364 "parser.y" /* yacc.c:1646  */
+#line 371 "parser.y" /* yacc.c:1646  */
     {}
-#line 2122 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 2131 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 119:
-#line 365 "parser.y" /* yacc.c:1646  */
-    {}
-#line 2128 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 374 "parser.y" /* yacc.c:1646  */
+    { (yyval.lvalue) = MainSpace::lookupMember((yyvsp[-2].lvalue), (yyvsp[0].str_val)); }
+#line 2137 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 120:
-#line 366 "parser.y" /* yacc.c:1646  */
-    { (yyval.expr) = MainSpace::lookup((yyvsp[0].str_val)); }
-#line 2134 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 375 "parser.y" /* yacc.c:1646  */
+    { (yyval.lvalue) = MainSpace::lookupArray((yyvsp[-3].lvalue), (yyvsp[-1].expr)); }
+#line 2143 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+    break;
+
+  case 121:
+#line 376 "parser.y" /* yacc.c:1646  */
+    { (yyval.lvalue) = MainSpace::lookup((yyvsp[0].str_val)); }
+#line 2149 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 
 
-#line 2138 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
+#line 2153 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2362,7 +2377,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 368 "parser.y" /* yacc.c:1906  */
+#line 378 "parser.y" /* yacc.c:1906  */
 
 
 void yyerror(const char* msg)

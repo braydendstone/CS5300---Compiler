@@ -1,6 +1,6 @@
-#line 2 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp"
+#line 2 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp"
 
-#line 4 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp"
+#line 4 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -625,7 +625,7 @@ char *yytext;
 #include <cstdlib>
 
 #include "parser.hpp"
-#line 629 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp"
+#line 629 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp"
 
 #define INITIAL 0
 
@@ -844,7 +844,7 @@ YY_DECL
 #line 10 "scanner.l"
 
 
-#line 848 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp"
+#line 848 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1245,7 +1245,7 @@ YY_RULE_SETUP
 #line 86 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 1249 "/home/braydendstone/Documents/CS5300/Compilers/official/cmake-build-debug/scanner.cpp"
+#line 1249 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
