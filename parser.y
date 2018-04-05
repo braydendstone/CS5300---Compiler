@@ -117,7 +117,7 @@ void yyerror(const char*);
 %type <int_val> INTSY 
     %type <identList> IdentList
 %type <int_val> OptVar 
-    %type <stringPair> IfHead
+    %type <int_val> IfHead
 %type <int_val> IfStatement 
     %type <lvalue> LValue
 %type <int_val> OptArguments
@@ -270,10 +270,10 @@ Statement : Assignment {}
 Assignment : LValue ASSIGNSY Expression { MainSpace::assign($1, $3); }
            ;
 
-IfStatement : IfHead ThenPart ElseIfList ElseClause ENDSY { /* MainSpace::endIf($2); /* write out final label */ }
+IfStatement : IfHead ThenPart ElseIfList ElseClause ENDSY { MainSpace::endIf($1); /* write out final label */ }
             ;
 
-IfHead : IFSY Expression { /* $$ = MainSpace::ifExpr($2);  return a pair, the final label and else branch label, write out condition and "bne else", then conditions */ }
+IfHead : IFSY Expression {  $$ = MainSpace::ifExpr($2); /* return a pair, the final label and else branch label, write out condition and "bne else", then conditions */ }
        ;
 
 ThenPart : THENSY StatementList { /* $$ = MainSpace::ifExprEnd();  output a jump to the final label, make else label, return final label */ }

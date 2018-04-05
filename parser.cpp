@@ -1792,13 +1792,13 @@ yyreduce:
 
   case 63:
 #line 273 "parser.y" /* yacc.c:1646  */
-    { /* MainSpace::endIf($2); /* write out final label */ }
+    { MainSpace::endIf((yyvsp[-4].int_val)); /* write out final label */ }
 #line 1797 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 64:
 #line 276 "parser.y" /* yacc.c:1646  */
-    { /* $$ = MainSpace::ifExpr($2);  return a pair, the final label and else branch label, write out condition and "bne else", then conditions */ }
+    {  (yyval.int_val) = MainSpace::ifExpr((yyvsp[0].expr)); /* return a pair, the final label and else branch label, write out condition and "bne else", then conditions */ }
 #line 1803 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 

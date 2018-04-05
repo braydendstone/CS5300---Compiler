@@ -3,10 +3,7 @@ VAR
 
 BEGIN
   x := 0;
-  repeat
-    write("It is not 5 yet\n");
-    x := x + 1;
-  until x >= 5;
-
-  write("\nAll done! :)");
+  if(x < 5)
+    then write("x less than 5");
+  end;
 END.

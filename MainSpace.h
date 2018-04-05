@@ -67,8 +67,8 @@ public:
     static void copy(std::string srcReg, std::string destReg, std::shared_ptr<Types> type);
     static void copy(std::string srcReg, std::string destReg, int index, std::shared_ptr<Types> type);
 
-    static void endIf();
-    static std::pair<std::string, std::string> ifExpr(std::string label);
+    static void endIf(int labelIndex);
+    static int ifExpr(Expression* expr);
     static std::string ifExprEnd();
 
     static void startLoop();

@@ -726,16 +726,29 @@ void MainSpace::copy(std::string srcReg, std::string destReg, int index, std::sh
 
 /* CONTROL STRUCTURES */
 
-//void MainSpace::endIf()
-//{
-//    std::cout << "IF" << ifCount << "_END:" << std::endl;
-//}
-//
-//std::pair<std::string, std::string> MainSpace::ifExpr(std::string label)
-//{
-//    // TODO
-//}
-//
+void MainSpace::endIf(int labelIndex)
+{
+    std::cout << "IF" << labelIndex << "_END:" << std::endl;
+}
+
+int MainSpace::ifExpr(Expression* expr)
+{
+   if(expr->isExprConst()){
+        auto tempReg = RegPool::allocate();
+        std::cout << "li " << tempReg << ", " << expr->getVal() << std::endl;
+        std::cout << "beq " << tempReg << ", $0, IF" << ifCount << "_END" <<  std::endl;
+        RegPool::returnReg(tempReg);
+    } else {
+        auto reg = expr->getReg();
+        std::cout << "beq " << reg << ", $0, IF" << ifCount << "_END" << std::endl;
+        RegPool::returnReg(reg);
+    }
+
+    int temp = ifCount;
+    ifCount++;
+    return temp;
+}
+
 //std::string MainSpace::ifExprEnd()
 //{
 //    std::cout << "j IF" << ifCount << "_END" << std::endl;
