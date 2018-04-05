@@ -9,6 +9,7 @@ std::shared_ptr<GlobalSymbolTable> MainSpace::globalSymbolTable;
 int MainSpace::whileCount = 0;
 int MainSpace::ifCount = 0;
 int MainSpace::forCount = 0;
+int MainSpace::elseCount = 0;
 
 void MainSpace::setupProgram()
 {
@@ -736,11 +737,11 @@ int MainSpace::ifExpr(Expression* expr)
    if(expr->isExprConst()){
         auto tempReg = RegPool::allocate();
         std::cout << "li " << tempReg << ", " << expr->getVal() << std::endl;
-        std::cout << "beq " << tempReg << ", $0, IF" << ifCount << "_END" <<  std::endl;
+        std::cout << "beq " << tempReg << ", $0, IF" << ifCount << "EL" << elseCount <<  std::endl;
         RegPool::returnReg(tempReg);
     } else {
         auto reg = expr->getReg();
-        std::cout << "beq " << reg << ", $0, IF" << ifCount << "_END" << std::endl;
+        std::cout << "beq " << reg << ", $0, IF" << ifCount << "EL" << elseCount << std::endl;
         RegPool::returnReg(reg);
     }
 
@@ -749,11 +750,24 @@ int MainSpace::ifExpr(Expression* expr)
     return temp;
 }
 
-//std::string MainSpace::ifExprEnd()
-//{
-//    std::cout << "j IF" << ifCount << "_END" << std::endl;
-//    return
-//}
+void MainSpace::ifExprEnd(int index)
+{
+    if(index == -1)
+    {
+        index = ifCount - 1;
+    }
+    std::cout << "j IF" << index << "_END" << std::endl;
+}
+
+int MainSpace::elseStart(){
+}
+
+int MainSpace::labelElse(){
+    int temp = ifCount - 1;
+    int elseIndex = elseCount++;
+    std::cout << "IF" << temp << "EL" << elseIndex << ":" << std::endl;
+    return temp;
+}
 
 void MainSpace::startLoop(){
     // Print start label

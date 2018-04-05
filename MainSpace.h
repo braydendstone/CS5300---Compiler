@@ -19,6 +19,7 @@ private:
     static int whileCount;
     static int ifCount;
     static int forCount;
+    static int elseCount;
 
 public:
     static void setupProgram();
@@ -69,7 +70,9 @@ public:
 
     static void endIf(int labelIndex);
     static int ifExpr(Expression* expr);
-    static std::string ifExprEnd();
+    static void ifExprEnd(int index);
+    static int elseStart();
+    static int labelElse();
 
     static void startLoop();
 

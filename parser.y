@@ -101,9 +101,10 @@ void yyerror(const char*);
     %type <type_val> ArrayType
 %type <int_val> Assignment
 %type <int_val> Block 
-%type <int_val> Body  
+%type <int_val> Body
+    %type <int_val> ElseStart
 %type <int_val> ElseClause 
-%type <int_val> ElseIfHead 
+    %type <int_val> ElseIfHead
 %type <int_val> ElseIfList 
     %type <expr> Expression
 %type <int_val> FSignature 
@@ -276,19 +277,21 @@ IfStatement : IfHead ThenPart ElseIfList ElseClause ENDSY { MainSpace::endIf($1)
 IfHead : IFSY Expression {  $$ = MainSpace::ifExpr($2); /* return a pair, the final label and else branch label, write out condition and "bne else", then conditions */ }
        ;
 
-ThenPart : THENSY StatementList { /* $$ = MainSpace::ifExprEnd();  output a jump to the final label, make else label, return final label */ }
+ThenPart : THENSY StatementList { MainSpace::ifExprEnd(-1); /* output a jump to the final label, make else label, return final label */ }
          ;
 
 ElseIfList : ElseIfList ElseIfHead ThenPart { /* write out statement list and j final, then next else if, return final label */}
            |{}
            ;
 
-ElseIfHead : ELSEIFSY Expression { /* write out condition and bne to final label, return the pair of final label and else */ }
+ElseIfHead : ELSEIFSY Expression { $$ = MainSpace::ifExpr($2); /* write out condition and bne to final label, return the pair of final label and else */ }
            ;
 
-ElseClause : ELSESY StatementList { /* return the final label, write out the statement list and j final */ }
+ElseClause : ElseStart StatementList { MainSpace::ifExprEnd($1); /* return the final label, write out the statement list and j final */ }
            | {}
            ;
+
+ElseStart : ELSESY { $$ = MainSpace::labelElse(); }
 
 WhileStatement : WhileHead DOSY StatementList ENDSY { MainSpace::endWhile($1); /* print statements, jump, and then end label */ }
                ;
