@@ -291,7 +291,7 @@ ElseIfStart : ELSEIFSY { MainSpace::labelElseIf(); }
             ;
 
 ElseClause : ElseStart StatementList { MainSpace::ifExprEnd($1); /* return the final label, write out the statement list and j final */ }
-           | {}
+           | { MainSpace::labelElseIf(); }
            ;
 
 ElseStart : ELSESY { $$ = MainSpace::labelElseIf(); }

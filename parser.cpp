@@ -1845,7 +1845,7 @@ yyreduce:
 
   case 71:
 #line 294 "parser.y" /* yacc.c:1646  */
-    {}
+    { MainSpace::labelElseIf(); }
 #line 1850 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 

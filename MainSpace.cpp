@@ -345,7 +345,7 @@ Expression* MainSpace::binaryop(std::string sym, Expression* a, Expression* b)
         auto reg2 = RegPool::allocate();
         auto reg3 = result->getReg();
         std::cout << "li " << reg2 << ", " << b->getVal() << std::endl;
-        std::cout << sym << " " << reg3 << ", " << reg2 << ", " << reg << std::endl;
+        std::cout << sym << " " << reg3 << ", " << reg << ", " << reg2 << std::endl;
         //std::cout << "sw " << reg3 << ", " << a->getOffset() << "($gp)" << std::endl;
         RegPool::returnReg(reg);
         RegPool::returnReg(reg2);
@@ -755,14 +755,15 @@ void MainSpace::ifExprEnd(int index)
         index = ifCount-1;
     }
 
-    std::cout << "IF" << index << "EL" << elseCount << ":" << std::endl;
+    //std::cout << "IF" << index << "EL" << elseCount << ":" << std::endl;
     std::cout << "j IF" << index << "_END" << std::endl;
     ifCount--;
 }
 
 int MainSpace::labelElseIf(){
     std::cout << "IF" << ifCount << "EL" << elseCount << ":" << std::endl;
-    elseCount++;
+    //elseCount++;
+    return elseCount;
 }
 
 int MainSpace::elseStart(){

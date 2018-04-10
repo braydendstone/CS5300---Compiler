@@ -13,8 +13,8 @@ BEGIN
     end;
   $elseif (i = 5)
     $then write("i is 5!");
-  $else
-    $write("i is greater than 5!");
+  else
+    write("i is greater than 5!");
   end;
 
 END.
