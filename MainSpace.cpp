@@ -730,6 +730,7 @@ void MainSpace::copy(std::string srcReg, std::string destReg, int index, std::sh
 void MainSpace::endIf(int labelIndex)
 {
     std::cout << "IF" << labelIndex << "_END:" << std::endl;
+    ifCount++;
 }
 
 int MainSpace::ifExpr(Expression* expr)
@@ -740,31 +741,34 @@ int MainSpace::ifExpr(Expression* expr)
         std::cout << "beq " << tempReg << ", $0, IF" << ifCount << "EL" << elseCount <<  std::endl;
         RegPool::returnReg(tempReg);
     } else {
-        auto reg = expr->getReg();
-        std::cout << "beq " << reg << ", $0, IF" << ifCount << "EL" << elseCount << std::endl;
-        RegPool::returnReg(reg);
-    }
-
-    int temp = ifCount;
-    ifCount++;
-    return temp;
+       auto reg = expr->getReg();
+       std::cout << "beq " << reg << ", $0, IF" << ifCount << "EL" << elseCount << std::endl;
+       RegPool::returnReg(reg);
+   }
+    return ifCount;
 }
 
 void MainSpace::ifExprEnd(int index)
 {
     if(index == -1)
     {
-        index = ifCount - 1;
+        index = ifCount;
     }
     std::cout << "j IF" << index << "_END" << std::endl;
+}
+
+int MainSpace::labelElseIf(){
+    std::cout << "IF" << ifCount << "EL" << elseCount << ":" << std::endl;
+    elseCount++;
 }
 
 int MainSpace::elseStart(){
 }
 
 int MainSpace::labelElse(){
-    int temp = ifCount - 1;
-    int elseIndex = elseCount++;
+    int temp = ifCount;
+    int elseIndex = elseCount;
+    //elseCount++;
     std::cout << "IF" << temp << "EL" << elseIndex << ":" << std::endl;
     return temp;
 }

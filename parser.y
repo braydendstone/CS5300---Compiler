@@ -284,8 +284,11 @@ ElseIfList : ElseIfList ElseIfHead ThenPart { /* write out statement list and j 
            |{}
            ;
 
-ElseIfHead : ELSEIFSY Expression { $$ = MainSpace::ifExpr($2); /* write out condition and bne to final label, return the pair of final label and else */ }
+ElseIfHead : ElseIfStart Expression { $$ = MainSpace::ifExpr($2); /* write out condition and bne to final label, return the pair of final label and else */ }
            ;
+
+ElseIfStart : ELSEIFSY { MainSpace::labelElseIf(); }
+            ;
 
 ElseClause : ElseStart StatementList { MainSpace::ifExprEnd($1); /* return the final label, write out the statement list and j final */ }
            | {}
