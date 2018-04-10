@@ -73,7 +73,7 @@ public:
     static void ifExprEnd(int index);
     static int elseStart();
     static int labelElse();
-    static int labelElseIf();
+    static int labelElseIf(bool isElseIf);
 
     static void startLoop();
 

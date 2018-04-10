@@ -760,9 +760,14 @@ void MainSpace::ifExprEnd(int index)
     ifCount--;
 }
 
-int MainSpace::labelElseIf(){
+int MainSpace::labelElseIf(bool isElseIf){
+    if(isElseIf) {
+        //elseCount++;
+    }
     std::cout << "IF" << ifCount << "EL" << elseCount << ":" << std::endl;
-    //elseCount++;
+    if(isElseIf) {
+        elseCount++;
+    }
     return elseCount;
 }
 
@@ -772,7 +777,7 @@ int MainSpace::elseStart(){
 int MainSpace::labelElse(){
     int temp = ifCount;
     int elseIndex = elseCount;
-    //elseCount++;
+    elseCount--;
     std::cout << "IF" << temp << "EL" << elseIndex << ":" << std::endl;
     return temp;
 }

@@ -287,14 +287,14 @@ ElseIfList : ElseIfList ElseIfHead ThenPart { /* write out statement list and j 
 ElseIfHead : ElseIfStart Expression { $$ = MainSpace::ifExpr($2); /* write out condition and bne to final label, return the pair of final label and else */ }
            ;
 
-ElseIfStart : ELSEIFSY { MainSpace::labelElseIf(); }
+ElseIfStart : ELSEIFSY { MainSpace::labelElseIf(true); }
             ;
 
 ElseClause : ElseStart StatementList { MainSpace::ifExprEnd($1); /* return the final label, write out the statement list and j final */ }
-           | { MainSpace::labelElseIf(); }
+           | { MainSpace::labelElseIf(false); }
            ;
 
-ElseStart : ELSESY { $$ = MainSpace::labelElseIf(); }
+ElseStart : ELSESY { $$ = MainSpace::labelElseIf(false); }
 
 WhileStatement : WhileHead DOSY StatementList ENDSY { MainSpace::endWhile($1); /* print statements, jump, and then end label */ }
                ;

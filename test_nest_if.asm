@@ -34,13 +34,25 @@ IF1EL0:
 IF1_END:
 j IF0_END
 IF0EL0:
+move $s5, $gp
+addi $s5, $s5, 0
+lw $s4, 0($s5)
+li $s3, 5
+seq $s5, $s4, $s3
+beq $s5, $0, IF0EL1
 la $a0, STR2
 li $v0, 4
 syscall
 j IF0_END
+IF0EL1:
+la $a0, STR3
+li $v0, 4
+syscall
+j IF1_END
 IF0_END:
 .data
 .asciiz
 STR0: "i less than 5!\n"
 STR1: "j is 1\n"
-STR2: "i is greater than 5!"
+STR2: "i is 5!"
+STR3: "i is greater than 5!"

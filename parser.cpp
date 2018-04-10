@@ -1833,7 +1833,7 @@ yyreduce:
 
   case 69:
 #line 290 "parser.y" /* yacc.c:1646  */
-    { MainSpace::labelElseIf(); }
+    { MainSpace::labelElseIf(true); }
 #line 1838 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
@@ -1845,13 +1845,13 @@ yyreduce:
 
   case 71:
 #line 294 "parser.y" /* yacc.c:1646  */
-    { MainSpace::labelElseIf(); }
+    { MainSpace::labelElseIf(false); }
 #line 1850 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 72:
 #line 297 "parser.y" /* yacc.c:1646  */
-    { (yyval.int_val) = MainSpace::labelElseIf(); }
+    { (yyval.int_val) = MainSpace::labelElseIf(false); }
 #line 1856 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
