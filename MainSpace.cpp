@@ -730,7 +730,6 @@ void MainSpace::copy(std::string srcReg, std::string destReg, int index, std::sh
 void MainSpace::endIf(int labelIndex)
 {
     std::cout << "IF" << labelIndex << "_END:" << std::endl;
-    ifCount++;
 }
 
 int MainSpace::ifExpr(Expression* expr)
@@ -745,16 +744,21 @@ int MainSpace::ifExpr(Expression* expr)
        std::cout << "beq " << reg << ", $0, IF" << ifCount << "EL" << elseCount << std::endl;
        RegPool::returnReg(reg);
    }
-    return ifCount;
+    int temp = ifCount;
+    ifCount++;
+    return temp;
 }
 
 void MainSpace::ifExprEnd(int index)
 {
     if(index == -1)
     {
-        index = ifCount;
+        index = ifCount-1;
     }
+
+    std::cout << "IF" << index << "EL" << elseCount << ":" << std::endl;
     std::cout << "j IF" << index << "_END" << std::endl;
+    ifCount--;
 }
 
 int MainSpace::labelElseIf(){

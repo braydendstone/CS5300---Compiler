@@ -294,7 +294,7 @@ ElseClause : ElseStart StatementList { MainSpace::ifExprEnd($1); /* return the f
            | {}
            ;
 
-ElseStart : ELSESY { $$ = MainSpace::labelElse(); }
+ElseStart : ELSESY { $$ = MainSpace::labelElseIf(); }
 
 WhileStatement : WhileHead DOSY StatementList ENDSY { MainSpace::endWhile($1); /* print statements, jump, and then end label */ }
                ;
