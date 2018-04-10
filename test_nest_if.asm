@@ -14,20 +14,18 @@ sw $s6, 0($s7)
 move $s6, $gp
 addi $s6, $s6, 0
 lw $s7, 0($s6)
-lw $s5, 0($gp)
-li $s7, 5
+li $s5, 5
 slt $s6, $s5, $s7
 beq $s6, $0, IF0EL0
 la $a0, STR0
 li $v0, 4
 syscall
-move $s5, $gp
-addi $s5, $s5, 4
-lw $s6, 0($s5)
-lw $s7, 0($gp)
-li $s6, 1
-seq $s5, $s7, $s6
-beq $s5, $0, IF1EL0
+move $s7, $gp
+addi $s7, $s7, 4
+lw $s5, 0($s7)
+li $s4, 1
+seq $s7, $s4, $s5
+beq $s7, $0, IF1EL0
 la $a0, STR1
 li $v0, 4
 syscall

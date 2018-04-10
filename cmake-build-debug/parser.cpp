@@ -1851,7 +1851,7 @@ yyreduce:
 
   case 72:
 #line 297 "parser.y" /* yacc.c:1646  */
-    { (yyval.int_val) = MainSpace::labelElse(); }
+    { (yyval.int_val) = MainSpace::labelElseIf(); }
 #line 1856 "/home/braydendstone/Documents/CS5300/official/cmake-build-debug/parser.cpp" /* yacc.c:1646  */
     break;
 

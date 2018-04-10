@@ -330,7 +330,7 @@ Expression* MainSpace::binaryop(std::string sym, Expression* a, Expression* b)
     }
     if(a->isExprConst() && !(b->isExprConst()))
     {
-        auto reg = a->getReg();
+        auto reg = RegPool::allocate();
         auto reg2 = b->getReg();
         auto reg3 = result->getReg();
         std::cout << "li " << reg << ", " << a->getVal() << std::endl;
@@ -342,9 +342,9 @@ Expression* MainSpace::binaryop(std::string sym, Expression* a, Expression* b)
     else if(!(a->isExprConst()) && b->isExprConst())
     {
         auto reg = a->getReg();
-        auto reg2 = b->getReg();
+        auto reg2 = RegPool::allocate();
         auto reg3 = result->getReg();
-        std::cout << "li " << reg << ", " << b->getVal() << std::endl;
+        std::cout << "li " << reg2 << ", " << b->getVal() << std::endl;
         std::cout << sym << " " << reg3 << ", " << reg2 << ", " << reg << std::endl;
         //std::cout << "sw " << reg3 << ", " << a->getOffset() << "($gp)" << std::endl;
         RegPool::returnReg(reg);
@@ -742,7 +742,6 @@ int MainSpace::ifExpr(Expression* expr)
     } else {
        auto reg = expr->getReg();
        std::cout << "beq " << reg << ", $0, IF" << ifCount << "EL" << elseCount << std::endl;
-       RegPool::returnReg(reg);
    }
     int temp = ifCount;
     ifCount++;
