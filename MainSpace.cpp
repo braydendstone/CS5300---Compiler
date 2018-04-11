@@ -852,6 +852,7 @@ void MainSpace::repeat(Expression* expr){
         std::cout << "beq " << reg << ", $0, WHILE" << whileCount << std::endl;
         RegPool::returnReg(reg);
     }
+    whileCount++;
 }
 
 char* MainSpace::setupForLoop(char* id, Expression* expr){

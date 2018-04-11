@@ -1,19 +1,22 @@
 VAR 
-  i, j : integer;
+  i : integer;
 
 BEGIN
 
-i:= 0;
-j:= 0;
+i := 0;
 
-while(i <= 6) do
-  while(j <= i) do
-    write(i, ":",j,' ');
-    j := j+1;
-  end;
-  write('\n');
-  i := succ(i);
-  j := 0;
+repeat 
+  write("i: ", i, " \n");
+  i := i+1;
+until i > 5;
+
+repeat
+  write("should only happen once ", i, " \n");
+  i := i+1;
+until i > 5;
+
+while (i < 5) do
+  write("should not happen i=",i,'\n');
 end;
 
 END.

@@ -34,7 +34,7 @@ lw $s4, 0($s5)
 li $s7, 5
 sgt $s5, $s4, $s7
 beq $s5, $0, WHILE0
-WHILE0: 
+WHILE1: 
 move $s7, $gp
 addi $s7, $s7, 0
 lw $s5, 0($s7)
@@ -60,14 +60,14 @@ addi $s4, $s4, 0
 lw $s3, 0($s4)
 li $s7, 5
 sgt $s4, $s3, $s7
-beq $s4, $0, WHILE0
-WHILE0: 
+beq $s4, $0, WHILE1
+WHILE2: 
 move $s7, $gp
 addi $s7, $s7, 0
 lw $s4, 0($s7)
 li $s3, 5
 slt $s7, $s4, $s3
-beq $s7, $0, WHILE0_END
+beq $s7, $0, WHILE2_END
 move $s3, $gp
 addi $s3, $s3, 0
 lw $s7, 0($s3)
@@ -80,8 +80,8 @@ syscall
 li $a0, 10
 li $v0, 11
 syscall
-j WHILE0
-WHILE0_END:
+j WHILE2
+WHILE2_END:
 .data
 .asciiz
 STR0: "i: "
