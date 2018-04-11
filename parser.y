@@ -110,8 +110,7 @@ void yyerror(const char*);
 %type <int_val> FSignature 
     %type <paramPair> FieldDecl
     %type <paramPair> FieldDecls
-%type <int_val> ForHead 
-%type <int_val> ForStatement 
+%type <int_val> ForStatement
 %type <int_val> FormalParameter
 %type <int_val> FormalParameters  
 %type <int_val> FunctionCall 
@@ -135,7 +134,6 @@ void yyerror(const char*);
 %type <int_val> StatementList 
 %type <int_val> StopStatement 
     %type <str_val> ThenPart
-%type <int_val> ToHead 
     %type <type_val> Type
     %type <int_val> WhileHead
     %type <int_val> WhileStart
@@ -144,6 +142,9 @@ void yyerror(const char*);
 %type <int_val> WriteStatement
     %type <str_val> IDENTSY
     %type <str_val> STRINGSY
+    %type <str_val> ForStart
+    %type <str_val> ForDownToHead
+    %type <str_val> ForToHead
 
 %%
 Program : ProgramHead Block DOTSY { MainSpace::start($2); }
@@ -308,15 +309,23 @@ RepeatStatement : RepeatStart StatementList UNTILSY Expression { MainSpace::repe
 
 RepeatStart : REPEATSY { MainSpace::startLoop(); }
 
-ForStatement : ForHead ToHead DOSY StatementList ENDSY{}
+ForStatement : ForToStatement
+             | ForDownToStatement
              ;
 
-ForHead : FORSY IDENTSY ASSIGNSY Expression {}
+ForToStatement : ForToHead DOSY StatementList ENDSY { MainSpace::endForTo($1); }
         ;
 
-ToHead : TOSY Expression {}
-       | DOWNTOSY Expression {}
-       ;
+ForDownToStatement : ForDownToHead DOSY StatementList ENDSY { MainSpace::endForDownTo($1); }
+                   ;
+
+ForToHead : ForStart TOSY Expression { $$ = MainSpace::forToHead($1, $3); }
+          ;
+
+ForDownToHead : ForStart DOWNTOSY Expression { $$ = MainSpace::forDownToHead($1, $3); }
+
+ForStart : FORSY IDENTSY ASSIGNSY Expression { $$ = MainSpace::setupForLoop($2, $4); }
+         ;
 
 StopStatement : STOPSY { MainSpace::stopProgram(); }
               ;

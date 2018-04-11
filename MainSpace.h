@@ -81,6 +81,12 @@ public:
     static void endWhile(int index);
 
     static void repeat(Expression* expr);
+
+    static char* setupForLoop(char* id, Expression* expr);
+    static char* forToHead(char* id, Expression* expr);
+    static char* forDownToHead(char* id, Expression* expr);
+    static void endForTo(std::string id);
+    static void endForDownTo(std::string id);
 };
 
 

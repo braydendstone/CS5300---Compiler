@@ -1,22 +1,11 @@
 VAR 
-  i, j : integer;
+  i : integer;
 
 BEGIN
 
-  i := 5;
-  j := 1;
-
-  if (i < 5)
-    then write("i less than 5!\n");
-    if (j = 1)
-      then write("j is 1\n");
-    end;
-  elseif (i = 5)
-    then write("i is 5!");
-  else
-    write("i is greater than 5!");
+  for i:=0 to 5 do
+    write(i, " \n");
   end;
 
 END.
-
 
