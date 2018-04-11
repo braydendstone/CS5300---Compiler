@@ -2139,7 +2139,7 @@ yyreduce:
 
   case 121:
 #line 383 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.expr) = MainSpace::pred((yyvsp[-1].expr)); }
 #line 2144 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
@@ -2151,7 +2151,7 @@ yyreduce:
 
   case 123:
 #line 385 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.expr) = MainSpace::succ((yyvsp[-1].expr)); }
 #line 2156 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 

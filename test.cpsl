@@ -1,15 +1,19 @@
 VAR 
-  i : integer;
+  i, j : integer;
 
 BEGIN
 
-  for i := 10 downto 5 do
-    write(i, " \n");
-  end;
+i:= 0;
+j:= 0;
 
-  for j := 4 downto 0 do
-    write(' ',j);
+while(i <= 6) do
+  while(j <= i) do
+    write(i, ":",j,' ');
+    j := j+1;
   end;
+  write('\n');
+  i := succ(i);
+  j := 0;
+end;
 
 END.
-

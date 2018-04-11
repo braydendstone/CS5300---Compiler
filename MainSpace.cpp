@@ -569,6 +569,32 @@ Expression* MainSpace::ordConvert(Expression* e)
     return result;
 }
 
+Expression* MainSpace::pred(Expression* e){
+    if(e->getType() == GetTypes::intType()) {
+        if(e->isExprConst()) {
+            int val = e->getVal();
+            e->setVal(val - 1);
+        } else {
+            auto reg = e->getReg();
+            std::cout << "addi " << reg << ", " << reg << ", -1" << std::endl;
+        }
+        return e;
+    }
+}
+
+Expression* MainSpace::succ(Expression* e){
+    if(e->getType() == GetTypes::intType()) {
+        if(e->isExprConst()) {
+            int val = e->getVal();
+            e->setVal(val + 1);
+        } else {
+            auto reg = e->getReg();
+            std::cout << "addi " << reg << ", " << reg << ", 1" << std::endl;
+        }
+        return e;
+    }
+}
+
 void MainSpace::stopProgram()
 {
     std::cout << "li $v0, 10" << std::endl;

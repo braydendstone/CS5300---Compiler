@@ -55,6 +55,9 @@ public:
     static Expression* chrConvert(Expression* e);
     static Expression* ordConvert(Expression* e);
 
+    static Expression* succ(Expression* e);
+    static Expression* pred(Expression* e);
+
 
     static void stopProgram();
 

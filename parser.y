@@ -380,9 +380,9 @@ Expression : CHARCONSTSY                         { $$ = MainSpace::charExpr($1);
            | MINUSSY Expression %prec UMINUSSY   { $$ = MainSpace::minusExpr($2); }
            | NOTSY Expression                    {}
            | ORDSY LPARENSY Expression RPARENSY  { $$ = MainSpace::ordConvert($3); }
-           | PREDSY LPARENSY Expression RPARENSY {}
+           | PREDSY LPARENSY Expression RPARENSY { $$ = MainSpace::pred($3); }
            | STRINGSY                            { $$ = MainSpace::strExpr($1); }
-           | SUCCSY LPARENSY Expression RPARENSY {}
+           | SUCCSY LPARENSY Expression RPARENSY { $$ = MainSpace::succ($3); }
            ;
 
 FunctionCall : IDENTSY LPARENSY OptArguments RPARENSY {}
