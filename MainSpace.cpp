@@ -829,13 +829,13 @@ void MainSpace::repeat(Expression* expr){
 }
 
 char* MainSpace::setupForLoop(char* id, Expression* expr){
-    auto var = lookup(id);
+    auto var = getSymbolTable()->lookupVar(id);
     if(var == nullptr) {
         getSymbolTable()->enter_scope();
         getSymbolTable()->storeVariable(id, expr->getType());
-        var = lookup(id);
     }
-    assign(var, expr);
+    auto newVar = lookup(id);
+    assign(newVar, expr);
     std::cout << "FOR" << forCount << ":" << std::endl;
     return id;
 }
@@ -844,17 +844,19 @@ char* MainSpace::forToHead(char* id, Expression* expr){
     auto varExpr = lValToExpr(var);
     auto resultExpr = binaryop("sgt", varExpr, expr);
     auto reg = resultExpr->getReg();
-    std::cout << "beq " << reg << ", $0, " << "FOR" << forCount << "END" << std::endl;
+    std::cout << "bne " << reg << ", $0, " << "FOR" << forCount << "END" << std::endl;
     return id;
 }
+
 char* MainSpace::forDownToHead(char* id, Expression* expr){
     auto var = lookup(id);
     auto varExpr = lValToExpr(var);
     auto resultExpr = binaryop("slt", varExpr, expr);
     auto reg = resultExpr->getReg();
-    std::cout << "beq " << reg << ", $0, " << "FOR" << forCount << "END" << std::endl;
+    std::cout << "bne " << reg << ", $0, " << "FOR" << forCount << "END" << std::endl;
     return id;
 }
+
 void MainSpace::endForTo(std::string id){
     auto var = lookup(id);
     auto varExpr = lValToExpr(var);
@@ -862,10 +864,12 @@ void MainSpace::endForTo(std::string id){
     auto newExpr = binaryop("add", varExpr, increment);
     var = lookup(id);
     assign(var, newExpr);
+    std::cout << "j FOR" << forCount << std::endl;
     std::cout << "FOR" << forCount << "END:" << std::endl;
     getSymbolTable()->exit_scope();
-
+    forCount++;
 }
+
 void MainSpace::endForDownTo(std::string id){
     auto var = lookup(id);
     auto varExpr = lValToExpr(var);
@@ -873,6 +877,8 @@ void MainSpace::endForDownTo(std::string id){
     auto newExpr = binaryop("sub", varExpr, increment);
     var = lookup(id);
     assign(var, newExpr);
+    std::cout << "j FOR" << forCount << std::endl;
     std::cout << "FOR" << forCount << "END:" << std::endl;
     getSymbolTable()->exit_scope();
+    forCount++;
 }
