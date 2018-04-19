@@ -11,6 +11,7 @@
 #include "Expression.h"
 #include "Types.h"
 #include "Symbol.h"
+#include "Function.h"
 
 
 class SymbolTable
@@ -19,6 +20,8 @@ public:
     std::map<std::string, std::shared_ptr<Types>> types;
     std::map<std::string, std::shared_ptr<Expression>> consts;
     std::map<std::string, std::shared_ptr<Symbol>> variables;
+    std::map<std::string, std::shared_ptr<Function>> functions;
+    std::map<std::string, std::shared_ptr<Types>> params;
 private:
 
 };

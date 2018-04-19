@@ -38,6 +38,22 @@ void GlobalSymbolTable::storeType(std::string id, std::shared_ptr<Types> type)
     }
 }
 
+void GlobalSymbolTable::storeFunction(std::string id, std::shared_ptr<Function> func){
+    auto found = symbolTables.rbegin()->types.find(id);
+    if(found == symbolTables.rbegin()->types.end())
+    {
+        symbolTables.rbegin()->functions[id] = func;
+    }
+}
+
+void GlobalSymbolTable::storeParam(std::string id, std::shared_ptr<Types> type) {
+    auto found = symbolTables.rbegin()->types.find(id);
+    if(found == symbolTables.rbegin()->types.end())
+    {
+        symbolTables.rbegin()->params[id] = type;
+    }
+}
+
 std::shared_ptr<Types> GlobalSymbolTable::lookupType(std::string id)
 {
     //auto cur = symbolTables[0];
@@ -95,6 +111,34 @@ std::shared_ptr<Symbol> GlobalSymbolTable::lookupVar(std::string id)
 
     return nullptr;
 //    throw std::runtime_error("unable to find variable " + id);
+}
+
+std::shared_ptr<Function> GlobalSymbolTable::lookupFunc(std::string id)
+{
+    for(auto cur = symbolTables.rbegin(); cur != symbolTables.rend(); cur++)
+    {
+        auto found = cur->functions.find(id);
+        if(found != cur->functions.end())
+        {
+            return found->second;
+        }
+    }
+
+    return nullptr;
+}
+
+std::shared_ptr<Types> GlobalSymbolTable::lookupParam(std::string id)
+{
+    for(auto cur = symbolTables.rbegin(); cur != symbolTables.rend(); cur++)
+    {
+        auto found = cur->params.find(id);
+        if(found != cur->params.end())
+        {
+            return found->second;
+        }
+    }
+
+    return nullptr;
 }
 
 int GlobalSymbolTable::storeString(std::string str)

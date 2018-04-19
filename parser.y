@@ -28,7 +28,7 @@ void yyerror(const char*);
   std::vector<std::string>* identList;
   Types* type_val;
   LValue* lvalue;
-  std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramPair;
+  std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramList;
   //std::pair<std::string, std::string> stringPair;
 }
 
@@ -108,20 +108,20 @@ void yyerror(const char*);
 %type <int_val> ElseIfList 
     %type <expr> Expression
 %type <int_val> FSignature 
-    %type <paramPair> FieldDecl
-    %type <paramPair> FieldDecls
+    %type <paramList> FieldDecl
+    %type <paramList> FieldDecls
 %type <int_val> ForStatement
 %type <int_val> FormalParameter
 %type <int_val> FormalParameters  
-%type <int_val> FunctionCall 
+    %type <expr> FunctionCall
 %type <int_val> INTSY 
     %type <identList> IdentList
 %type <int_val> OptVar 
     %type <int_val> IfHead
 %type <int_val> IfStatement 
     %type <lvalue> LValue
-%type <int_val> OptArguments
-%type <int_val> OptFormalParameters  
+    %type <exprList> OptArguments
+    %type <paramList> OptFormalParameters
 %type <int_val> PSignature 
 %type <int_val> ProcedureCall
     %type <exprList> ReadArgs
@@ -147,10 +147,10 @@ void yyerror(const char*);
     %type <str_val> ForToHead
 
 %%
-Program : ProgramHead Block DOTSY { MainSpace::start($2); }
+Program : ProgramHead Block DOTSY { MainSpace::end($2); }
 				;
 
-ProgramHead : OptConstDecls OptTypeDecls OptVarDecls PFDecls
+ProgramHead : OptConstDecls OptTypeDecls OptVarDecls PFDecls { MainSpace::start(); }
             ;
 OptConstDecls : CONSTSY ConstDecls
 							|
@@ -169,10 +169,10 @@ PFDecls : PFDecls ProcedureDecl
         ;
 
 ProcedureDecl : PSignature SCOLONSY FORWARDSY SCOLONSY {}
-              | PSignature SCOLONSY Body SCOLONSY {}
+              | PSignature SCOLONSY Body SCOLONSY { MainSpace::endFunc(); }
 				    	;
 
-PSignature : PROCEDURESY IDENTSY LPARENSY OptFormalParameters RPARENSY {}
+PSignature : PROCEDURESY IDENTSY LPARENSY OptFormalParameters RPARENSY { Function* f = MainSpace::createFunc($2, $4, nullptr); MainSpace::declareFunc(f); }
            ;
 
 FunctionDecl : FSignature SCOLONSY FORWARDSY SCOLONSY {}
@@ -183,7 +183,7 @@ FSignature : FUNCTIONSY IDENTSY LPARENSY OptFormalParameters RPARENSY COLONSY Ty
            ;
 
 OptFormalParameters : FormalParameters {}
-                    | {}
+                    | { $$ = nullptr; }
                     ;
 
 FormalParameters : FormalParameters SCOLONSY FormalParameter {}
@@ -349,10 +349,10 @@ WriteArgs : WriteArgs COMMASY Expression { $$ = MainSpace::exprList($1, $3); }
           | Expression                   { $$ = MainSpace::exprList(nullptr, $1); }
           ;
 
-ProcedureCall : IDENTSY LPARENSY OptArguments RPARENSY {}
+ProcedureCall : IDENTSY LPARENSY OptArguments RPARENSY { MainSpace::callFunc($1, $3); }
               ;
 OptArguments : Arguments {}
-             |           {}
+             |           { $$ = nullptr; }
              ;
 Arguments : Arguments COMMASY Expression {}
           | Expression                   {}
@@ -385,7 +385,7 @@ Expression : CHARCONSTSY                         { $$ = MainSpace::charExpr($1);
            | SUCCSY LPARENSY Expression RPARENSY { $$ = MainSpace::succ($3); }
            ;
 
-FunctionCall : IDENTSY LPARENSY OptArguments RPARENSY {}
+FunctionCall : IDENTSY LPARENSY OptArguments RPARENSY { $$ = MainSpace::callFunc($1, $3); }
              ;
 
 LValue : LValue DOTSY IDENTSY { $$ = MainSpace::lookupMember($1, $3); }

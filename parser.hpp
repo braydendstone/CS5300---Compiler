@@ -135,7 +135,7 @@ union YYSTYPE
   std::vector<std::string>* identList;
   Types* type_val;
   LValue* lvalue;
-  std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramPair;
+  std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramList;
   //std::pair<std::string, std::string> stringPair;
 
 #line 142 "/home/braydendstone/Documents/CS5300/official/parser.hpp" /* yacc.c:1909  */

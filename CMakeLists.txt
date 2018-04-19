@@ -33,7 +33,7 @@ set(cpsl_srcs
   Expression.cpp
   Expression.h
   Types.cpp
-  Types.h Symbol.h LValue.cpp LValue.h)
+  Types.h Symbol.h LValue.cpp LValue.h Function.cpp Function.h)
 
 source_group("Calc" FILES ${cpsl_srcs})
 

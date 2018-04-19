@@ -150,6 +150,33 @@ Expression.cpp.s:
 	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Expression.cpp.s
 .PHONY : Expression.cpp.s
 
+Function.o: Function.cpp.o
+
+.PHONY : Function.o
+
+# target to build an object file
+Function.cpp.o:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Function.cpp.o
+.PHONY : Function.cpp.o
+
+Function.i: Function.cpp.i
+
+.PHONY : Function.i
+
+# target to preprocess a source file
+Function.cpp.i:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Function.cpp.i
+.PHONY : Function.cpp.i
+
+Function.s: Function.cpp.s
+
+.PHONY : Function.s
+
+# target to generate assembly for a file
+Function.cpp.s:
+	$(MAKE) -f CMakeFiles/cpsl.dir/build.make CMakeFiles/cpsl.dir/Function.cpp.s
+.PHONY : Function.cpp.s
+
 GlobalSymbolTable.o: GlobalSymbolTable.cpp.o
 
 .PHONY : GlobalSymbolTable.o
@@ -405,6 +432,9 @@ help:
 	@echo "... Expression.o"
 	@echo "... Expression.i"
 	@echo "... Expression.s"
+	@echo "... Function.o"
+	@echo "... Function.i"
+	@echo "... Function.s"
 	@echo "... GlobalSymbolTable.o"
 	@echo "... GlobalSymbolTable.i"
 	@echo "... GlobalSymbolTable.s"

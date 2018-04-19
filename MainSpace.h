@@ -11,6 +11,7 @@
 #include "Types.h"
 #include "RegPool.h"
 #include "LValue.h"
+#include "Function.h"
 
 
 class MainSpace {
@@ -23,7 +24,8 @@ private:
 
 public:
     static void setupProgram();
-    static void start(int body);
+    static void start();
+    static void end(int body);
     static std::shared_ptr<GlobalSymbolTable> initTable();
 
     static std::shared_ptr<GlobalSymbolTable> getSymbolTable();
@@ -90,6 +92,11 @@ public:
     static char* forDownToHead(char* id, Expression* expr);
     static void endForTo(std::string id);
     static void endForDownTo(std::string id);
+
+    static Expression* callFunc(char* id, std::vector<Expression*>* args);
+    static Function* createFunc(char* id, std::vector<std::pair<std::string, std::shared_ptr<Types>>>* params, Types* returnType);
+    static void declareFunc(Function* func);
+    static void endFunc();
 };
 
 

@@ -18,7 +18,6 @@ void MainSpace::setupProgram()
     std::cout << "main:" << std::endl;
 //    std::cout << "main: la $gp, GA" << std::endl;
     std::cout << "j start" << std::endl;
-    std::cout << "start: " << std::endl;
 
 //    Expression* expr = strExpr("hello");
 //    insertConst("x", expr);
@@ -62,7 +61,10 @@ std::shared_ptr<GlobalSymbolTable> MainSpace::initTable()
     return globalTable;
 }
 
-void MainSpace::start(int body)
+void MainSpace::start() {
+    std::cout << "start: " << std::endl;
+}
+void MainSpace::end(int body)
 {
     std::cout << ".data" << std::endl;
     std::cout << ".asciiz" << std::endl;
@@ -908,4 +910,110 @@ void MainSpace::endForDownTo(std::string id){
     std::cout << "FOR" << forCount << "END:" << std::endl;
     getSymbolTable()->exit_scope();
     forCount++;
+}
+
+/* FUNCTIONS AND PROCEDURES */
+
+Expression* MainSpace::callFunc(char* id, std::vector<Expression*>* args){
+    auto function = getSymbolTable()->lookupFunc(id);
+
+    if(function == nullptr) {
+        throw std::runtime_error("ERROR: Function " + std::string(id) + " not found");
+    }
+
+    // store off the always needed regs
+    std::cout << "addi $sp, $sp, -8" << std::endl;
+    std::cout << "sw $ra, 0($sp)" << std::endl;
+    std::cout << "sw $fp, 4($sp)" << std::endl;
+
+    // store off other regs (currently, just save off all 18, meaning we need 18 * 4 = 72 space
+    std::cout << "addi $sp, $sp, -72" << std::endl;
+    int offset = 0;
+    for(int i = 0; i < 10; i++)
+    {
+        std::cout << "sw $t" << i << ", " << offset << "($sp)" << std::endl;
+        offset += 4;
+    }
+    for(int i = 0; i < 8; i++)
+    {
+        std::cout << "sw $s" << i << ", " << offset << "($sp)" << std::endl;
+        offset += 4;
+    }
+
+    // TODO: get total size of params
+
+    // TODO: check size of argument list vs function def
+
+    // TODO: if params exist, deal with them appropriately
+
+    // move the $fp
+    std::cout << "move $fp, $sp" << std::endl;
+
+    // call func
+    std::cout << "jal _" << function->getName() << "_" << std::endl;
+
+    // TODO : clear params
+
+    // restore all the $t and $s regs
+    offset = 0;
+    for(int i = 0; i < 10; i++)
+    {
+        std::cout << "lw $t" << i << ", " << offset << "($sp)" << std::endl;
+        offset += 4;
+    }
+    for(int i = 0; i < 8; i++)
+    {
+        std::cout << "lw $s" << i << ", " << offset << "($sp)" << std::endl;
+        offset += 4;
+    }
+
+    std::cout << "addi $sp, $sp, 72" << std::endl;
+
+    // restore the $ra and $fp
+    std::cout << "lw $ra, 0($sp)" << std::endl;
+    std::cout << "lw $fp, 4($sp)" << std::endl;
+    std::cout << "addi $sp, $sp, 8" << std::endl;
+
+    // check for and setup return val
+    if(function->getReturnType()  == nullptr) return nullptr;
+
+    auto expr = new Expression(function->getReturnType());
+    auto reg = expr->getReg();
+    std::cout << "move " << reg << ", $v0" << std::endl;
+    return expr;
+}
+
+Function* MainSpace::createFunc(char* id, std::vector<std::pair<std::string, std::shared_ptr<Types>>>* params, Types* returnType){
+    std::shared_ptr<Types> retType = nullptr;
+    if(returnType != nullptr) {
+        retType = getSymbolTable()->lookupAllType(returnType->getName());
+    }
+
+    std::vector<std::pair<std::string, std::shared_ptr<Types>>> paramList;
+    if(params != nullptr) {
+        for(auto& item: *params) {
+            paramList.push_back(item);
+        }
+    }
+
+    auto result = new Function(std::string(id), paramList, retType);
+    return result;
+}
+
+void MainSpace::declareFunc(Function* func){
+    auto newFunc = std::make_shared<Function>(func->getName(), func->getArgs(), func->getReturnType(), true);
+    getSymbolTable()->storeFunction(newFunc->getName(), newFunc);
+
+    getSymbolTable()->enter_scope();
+    for(const auto& item: newFunc->getArgs()) {
+        getSymbolTable()->storeParam(item.first, item.second);
+    }
+
+    std::cout << "_" << newFunc->getName() << "_:" << std::endl;
+}
+
+void MainSpace::endFunc() {
+    getSymbolTable()->exit_scope();
+    std::cout << "move $sp, $fp" << std::endl;
+    std::cout << "jr $ra" << std::endl;
 }

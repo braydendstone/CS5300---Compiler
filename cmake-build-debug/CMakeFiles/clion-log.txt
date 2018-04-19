@@ -17,4 +17,4 @@
 -- Found FLEX: /usr/bin/flex (found version "2.6.1") 
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/braydendstone/Documents/CS5300/official/cmake-build-debug
+-- Build files have been written to: /home/braydendstone/Documents/CS5300/official

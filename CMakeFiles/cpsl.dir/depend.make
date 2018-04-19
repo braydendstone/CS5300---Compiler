@@ -3,6 +3,7 @@
 
 CMakeFiles/cpsl.dir/Expression.cpp.o: Expression.cpp
 CMakeFiles/cpsl.dir/Expression.cpp.o: Expression.h
+CMakeFiles/cpsl.dir/Expression.cpp.o: Function.h
 CMakeFiles/cpsl.dir/Expression.cpp.o: GlobalSymbolTable.h
 CMakeFiles/cpsl.dir/Expression.cpp.o: LValue.h
 CMakeFiles/cpsl.dir/Expression.cpp.o: RegPool.h
@@ -10,7 +11,12 @@ CMakeFiles/cpsl.dir/Expression.cpp.o: Symbol.h
 CMakeFiles/cpsl.dir/Expression.cpp.o: SymbolTable.h
 CMakeFiles/cpsl.dir/Expression.cpp.o: Types.h
 
+CMakeFiles/cpsl.dir/Function.cpp.o: Function.cpp
+CMakeFiles/cpsl.dir/Function.cpp.o: Function.h
+CMakeFiles/cpsl.dir/Function.cpp.o: Types.h
+
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o: Expression.h
+CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o: Function.h
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o: GlobalSymbolTable.cpp
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o: GlobalSymbolTable.h
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o: RegPool.h
@@ -19,6 +25,7 @@ CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o: SymbolTable.h
 CMakeFiles/cpsl.dir/GlobalSymbolTable.cpp.o: Types.h
 
 CMakeFiles/cpsl.dir/LValue.cpp.o: Expression.h
+CMakeFiles/cpsl.dir/LValue.cpp.o: Function.h
 CMakeFiles/cpsl.dir/LValue.cpp.o: GlobalSymbolTable.h
 CMakeFiles/cpsl.dir/LValue.cpp.o: LValue.cpp
 CMakeFiles/cpsl.dir/LValue.cpp.o: LValue.h
@@ -28,6 +35,7 @@ CMakeFiles/cpsl.dir/LValue.cpp.o: SymbolTable.h
 CMakeFiles/cpsl.dir/LValue.cpp.o: Types.h
 
 CMakeFiles/cpsl.dir/MainSpace.cpp.o: Expression.h
+CMakeFiles/cpsl.dir/MainSpace.cpp.o: Function.h
 CMakeFiles/cpsl.dir/MainSpace.cpp.o: GlobalSymbolTable.h
 CMakeFiles/cpsl.dir/MainSpace.cpp.o: LValue.h
 CMakeFiles/cpsl.dir/MainSpace.cpp.o: MainSpace.cpp
@@ -41,6 +49,7 @@ CMakeFiles/cpsl.dir/RegPool.cpp.o: RegPool.cpp
 CMakeFiles/cpsl.dir/RegPool.cpp.o: RegPool.h
 
 CMakeFiles/cpsl.dir/SymbolTable.cpp.o: Expression.h
+CMakeFiles/cpsl.dir/SymbolTable.cpp.o: Function.h
 CMakeFiles/cpsl.dir/SymbolTable.cpp.o: RegPool.h
 CMakeFiles/cpsl.dir/SymbolTable.cpp.o: Symbol.h
 CMakeFiles/cpsl.dir/SymbolTable.cpp.o: SymbolTable.cpp
@@ -51,6 +60,7 @@ CMakeFiles/cpsl.dir/Types.cpp.o: Types.cpp
 CMakeFiles/cpsl.dir/Types.cpp.o: Types.h
 
 CMakeFiles/cpsl.dir/main.cpp.o: Expression.h
+CMakeFiles/cpsl.dir/main.cpp.o: Function.h
 CMakeFiles/cpsl.dir/main.cpp.o: GlobalSymbolTable.h
 CMakeFiles/cpsl.dir/main.cpp.o: LValue.h
 CMakeFiles/cpsl.dir/main.cpp.o: MainSpace.h
@@ -61,6 +71,7 @@ CMakeFiles/cpsl.dir/main.cpp.o: Types.h
 CMakeFiles/cpsl.dir/main.cpp.o: main.cpp
 
 CMakeFiles/cpsl.dir/parser.cpp.o: Expression.h
+CMakeFiles/cpsl.dir/parser.cpp.o: Function.h
 CMakeFiles/cpsl.dir/parser.cpp.o: GlobalSymbolTable.h
 CMakeFiles/cpsl.dir/parser.cpp.o: LValue.h
 CMakeFiles/cpsl.dir/parser.cpp.o: MainSpace.h
@@ -71,6 +82,7 @@ CMakeFiles/cpsl.dir/parser.cpp.o: Types.h
 CMakeFiles/cpsl.dir/parser.cpp.o: parser.cpp
 
 CMakeFiles/cpsl.dir/scanner.cpp.o: Expression.h
+CMakeFiles/cpsl.dir/scanner.cpp.o: Function.h
 CMakeFiles/cpsl.dir/scanner.cpp.o: GlobalSymbolTable.h
 CMakeFiles/cpsl.dir/scanner.cpp.o: LValue.h
 CMakeFiles/cpsl.dir/scanner.cpp.o: RegPool.h

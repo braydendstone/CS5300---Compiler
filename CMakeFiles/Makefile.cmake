@@ -28,7 +28,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.9/Modules/CMakeDetermineCompilerABI.cmake"
   "/usr/share/cmake-3.9/Modules/CMakeDetermineCompilerId.cmake"
   "/usr/share/cmake-3.9/Modules/CMakeDetermineSystem.cmake"
+  "/usr/share/cmake-3.9/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
   "/usr/share/cmake-3.9/Modules/CMakeFindBinUtils.cmake"
+  "/usr/share/cmake-3.9/Modules/CMakeFindCodeBlocks.cmake"
   "/usr/share/cmake-3.9/Modules/CMakeGenericSystem.cmake"
   "/usr/share/cmake-3.9/Modules/CMakeLanguageInformation.cmake"
   "/usr/share/cmake-3.9/Modules/CMakeParseImplicitLinkInfo.cmake"
@@ -98,6 +100,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.9/Modules/Platform/Linux-GNU.cmake"
   "/usr/share/cmake-3.9/Modules/Platform/Linux.cmake"
   "/usr/share/cmake-3.9/Modules/Platform/UnixPaths.cmake"
+  "/usr/share/cmake-3.9/Modules/ProcessorCount.cmake"
   )
 
 # The corresponding makefile is:
