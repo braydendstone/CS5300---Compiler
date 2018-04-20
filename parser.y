@@ -97,7 +97,7 @@ void yyerror(const char*);
 %right UMINUSSY 
 
     %type <char_val> CHARCONSTSY
-%type <int_val> Arguments 
+    %type <exprList> Arguments
     %type <type_val> ArrayType
 %type <int_val> Assignment
 %type <int_val> Block 
@@ -111,8 +111,8 @@ void yyerror(const char*);
     %type <paramList> FieldDecl
     %type <paramList> FieldDecls
 %type <int_val> ForStatement
-%type <int_val> FormalParameter
-%type <int_val> FormalParameters  
+    %type <paramList> FormalParameter
+    %type <paramList> FormalParameters
     %type <expr> FunctionCall
 %type <int_val> INTSY 
     %type <identList> IdentList
@@ -170,7 +170,7 @@ PFDecls : PFDecls ProcedureDecl
 
 ProcedureDecl : PSignature SCOLONSY FORWARDSY SCOLONSY {}
               | PSignature SCOLONSY Body SCOLONSY { MainSpace::endFunc(); }
-				    	;
+			  ;
 
 PSignature : PROCEDURESY IDENTSY LPARENSY OptFormalParameters RPARENSY { Function* f = MainSpace::createFunc($2, $4, nullptr); MainSpace::declareFunc(f); }
            ;
@@ -182,20 +182,20 @@ FunctionDecl : FSignature SCOLONSY FORWARDSY SCOLONSY {}
 FSignature : FUNCTIONSY IDENTSY LPARENSY OptFormalParameters RPARENSY COLONSY Type {}
            ;
 
-OptFormalParameters : FormalParameters {}
+OptFormalParameters : FormalParameters { $$ = $1; }
                     | { $$ = nullptr; }
                     ;
 
-FormalParameters : FormalParameters SCOLONSY FormalParameter {}
-                 | FormalParameter {}
+FormalParameters : FormalParameters SCOLONSY FormalParameter { $$ = MainSpace::paramList($1, $3); }
+                 | FormalParameter { $$ = $1; }
                  ;
 
-FormalParameter : OptVar IdentList COLONSY Type {}
+FormalParameter : OptVar IdentList COLONSY Type { $$ = MainSpace::addParameter($1, $2, $4); }
                 ;
 
-OptVar : VARSY {}
-       | REFSY {}
-       | {}
+OptVar : VARSY { $$ = 0; }
+       | REFSY { $$ = 1; }
+       | { $$ = 0; }
        ;
 
 
@@ -351,11 +351,11 @@ WriteArgs : WriteArgs COMMASY Expression { $$ = MainSpace::exprList($1, $3); }
 
 ProcedureCall : IDENTSY LPARENSY OptArguments RPARENSY { MainSpace::callFunc($1, $3); }
               ;
-OptArguments : Arguments {}
+OptArguments : Arguments { $$ = $1; }
              |           { $$ = nullptr; }
              ;
-Arguments : Arguments COMMASY Expression {}
-          | Expression                   {}
+Arguments : Arguments COMMASY Expression { $$ = MainSpace::exprList($1, $3); }
+          | Expression                   { $$ = MainSpace::exprList(nullptr, $1); }
           ;
 
 Expression : CHARCONSTSY                         { $$ = MainSpace::charExpr($1); }

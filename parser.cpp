@@ -1587,7 +1587,7 @@ yyreduce:
 
   case 18:
 #line 185 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.paramList) = (yyvsp[0].paramList); }
 #line 1592 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
@@ -1599,37 +1599,37 @@ yyreduce:
 
   case 20:
 #line 189 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.paramList) = MainSpace::paramList((yyvsp[-2].paramList), (yyvsp[0].paramList)); }
 #line 1604 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 21:
 #line 190 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.paramList) = (yyvsp[0].paramList); }
 #line 1610 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 22:
 #line 193 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.paramList) = MainSpace::addParameter((yyvsp[-3].int_val), (yyvsp[-2].identList), (yyvsp[0].type_val)); }
 #line 1616 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 23:
 #line 196 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.int_val) = 0; }
 #line 1622 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 24:
 #line 197 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.int_val) = 1; }
 #line 1628 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 25:
 #line 198 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.int_val) = 0; }
 #line 1634 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
@@ -1989,7 +1989,7 @@ yyreduce:
 
   case 95:
 #line 354 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.exprList) = (yyvsp[0].exprList); }
 #line 1994 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
@@ -2001,13 +2001,13 @@ yyreduce:
 
   case 97:
 #line 357 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.exprList) = MainSpace::exprList((yyvsp[-2].exprList), (yyvsp[0].expr)); }
 #line 2006 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 98:
 #line 358 "parser.y" /* yacc.c:1646  */
-    {}
+    { (yyval.exprList) = MainSpace::exprList(nullptr, (yyvsp[0].expr)); }
 #line 2012 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 

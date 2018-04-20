@@ -47,6 +47,7 @@ public:
     std::shared_ptr<Types> getType() { return type; }
     void setType(std::shared_ptr<Types> newType) { type = newType; }
     void setVal(int newVal) { value = newVal; }
+    std::shared_ptr<LValue> getLValue() { return lvalue; }
 
 };
 

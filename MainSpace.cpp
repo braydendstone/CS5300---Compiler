@@ -940,11 +940,52 @@ Expression* MainSpace::callFunc(char* id, std::vector<Expression*>* args){
         offset += 4;
     }
 
-    // TODO: get total size of params
+    // get total size of params
+    int paramSize = 0;
+    for(auto& item : function->getArgs()) {
+        paramSize += item.second->getSize();
+    }
 
-    // TODO: check size of argument list vs function def
+    // TODO: check size of argument list vs function def (currently throwing segFault)
+//    int argSize = 0;
+//    for(auto& item : *args) {
+//        argSize += item->getType()->getSize();
+//    }
+//
+//    if(paramSize != argSize) {
+//        throw std::runtime_error("arguments do not match function definition");
+//    }
 
-    // TODO: if params exist, deal with them appropriately
+    // if params exist, deal with them appropriately
+    if(paramSize > 0) {
+        std::cout << "addi $sp, $sp, -" << paramSize << std::endl;
+
+        int paramsOffset = 0;
+        for(int i = 0; i < function->getArgs().size(); i++) {
+            if(std::dynamic_pointer_cast<ReferenceType>(function->getArgs()[i].second)) {
+                auto lvalue = (*args)[i]->getLValue();
+
+                auto reg = lvalue->getAddress()->getReg();
+                std::cout << "sw " << reg << ", " << paramsOffset << "($sp)" << std::endl;
+            } else {
+                if(std::dynamic_pointer_cast<IntegerType>((*args)[i]->getType()) || std::dynamic_pointer_cast<BooleanType>((*args)[i]->getType())
+                   || std::dynamic_pointer_cast<CharacterType>((*args)[i]->getType()) || std::dynamic_pointer_cast<StringType>((*args)[i]->getType())) {
+                    auto tempReg = RegPool::allocate();
+                    if((*args)[i]->isExprConst()){
+                        std::cout << "li " << tempReg << ", " << (*args)[i]->getVal() << std::endl;
+                    } else {
+                        auto reg = (*args)[i]->getReg();
+                        std::cout << "move " << tempReg << ", " << reg << std::endl;
+                    }
+                    std::cout << "sw " << tempReg << ", " << paramsOffset << "($sp)" << std::endl;
+                } else {
+                    auto reg = (*args)[i]->getLValue()->getAddress()->getReg();
+                    copy(reg, "$sp", paramsOffset, (*args)[i]->getType());
+                }
+            }
+            paramsOffset += function->getArgs()[i].second->getSize();
+        }
+    }
 
     // move the $fp
     std::cout << "move $fp, $sp" << std::endl;
@@ -952,7 +993,10 @@ Expression* MainSpace::callFunc(char* id, std::vector<Expression*>* args){
     // call func
     std::cout << "jal _" << function->getName() << "_" << std::endl;
 
-    // TODO : clear params
+    // clear params
+    if(paramSize > 0) {
+        std::cout << "addi $sp, $sp, " << paramSize << std::endl;
+    }
 
     // restore all the $t and $s regs
     offset = 0;
@@ -1016,4 +1060,27 @@ void MainSpace::endFunc() {
     getSymbolTable()->exit_scope();
     std::cout << "move $sp, $fp" << std::endl;
     std::cout << "jr $ra" << std::endl;
+}
+
+std::vector<std::pair<std::string, std::shared_ptr<Types>>>* MainSpace::addParameter(int ref, std::vector<std::string>* identList, Types* type) {
+    auto result = new std::vector<std::pair<std::string, std::shared_ptr<Types>>>();
+    auto t = getSymbolTable()->lookupType(type->getName());
+    if(ref) {
+        t = std::make_shared<ReferenceType>(t);
+    }
+    for(auto& item: *identList) {
+        result->push_back(std::make_pair(item, t));
+    }
+
+    return result;
+}
+
+std::vector<std::pair<std::string, std::shared_ptr<Types>>>* MainSpace::paramList(std::vector<std::pair<std::string, std::shared_ptr<Types>>>* finalList, std::vector<std::pair<std::string, std::shared_ptr<Types>>>* list){
+    if(finalList == nullptr) return list;
+
+    for(auto& item: *list) {
+        finalList->push_back(item);
+    }
+
+    return finalList;
 }

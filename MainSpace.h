@@ -97,6 +97,8 @@ public:
     static Function* createFunc(char* id, std::vector<std::pair<std::string, std::shared_ptr<Types>>>* params, Types* returnType);
     static void declareFunc(Function* func);
     static void endFunc();
+    static std::vector<std::pair<std::string, std::shared_ptr<Types>>>* addParameter(int ref, std::vector<std::string>* identList, Types* type);
+    static std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramList(std::vector<std::pair<std::string, std::shared_ptr<Types>>>* finalList, std::vector<std::pair<std::string, std::shared_ptr<Types>>>* list);
 };
 
 
