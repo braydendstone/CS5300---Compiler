@@ -26,8 +26,8 @@
       <file leaf-file-name="MainSpace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainSpace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="987" column="44" lean-forward="false" selection-start-line="987" selection-start-column="44" selection-end-line="987" selection-end-column="44" />
+            <state relative-caret-position="318">
+              <caret line="450" column="19" lean-forward="false" selection-start-line="450" selection-start-column="18" selection-end-line="450" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -127,7 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>obtainty;</find>
       <find>lValToExpr</find>
       <find>arraytype</find>
       <find>addtype</find>
@@ -157,6 +156,7 @@
       <find>allvar</find>
       <find>lvalto</find>
       <find>RegPool::allocate</find>
+      <find>sw</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -723,8 +723,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MainSpace.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="987" column="44" lean-forward="false" selection-start-line="987" selection-start-column="44" selection-end-line="987" selection-end-column="44" />
+        <state relative-caret-position="318">
+          <caret line="450" column="19" lean-forward="false" selection-start-line="450" selection-start-column="18" selection-end-line="450" selection-end-column="19" />
           <folding />
         </state>
       </provider>
