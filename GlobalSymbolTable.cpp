@@ -50,7 +50,8 @@ void GlobalSymbolTable::storeParam(std::string id, std::shared_ptr<Types> type) 
     auto found = symbolTables.rbegin()->types.find(id);
     if(found == symbolTables.rbegin()->types.end())
     {
-        symbolTables.rbegin()->params[id] = type;
+        symbolTables.rbegin()->variables[id] = std::make_shared<Symbol>(id, type, globalOffset);
+        globalOffset += type->getSize();
     }
 }
 

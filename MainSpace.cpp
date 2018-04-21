@@ -741,6 +741,7 @@ void MainSpace::copy(std::string srcReg, std::string destReg, std::shared_ptr<Ty
         std::cout << "sw " << tempReg << ", " << i << "(" << destReg << ")" << std::endl;
         i += 4;
     }
+    RegPool::returnReg(tempReg);
 }
 
 void MainSpace::copy(std::string srcReg, std::string destReg, int index, std::shared_ptr<Types> type){
@@ -751,6 +752,7 @@ void MainSpace::copy(std::string srcReg, std::string destReg, int index, std::sh
         std::cout << "sw " << tempReg << ", " << i+index << "(" << destReg << ")" << std::endl;
         i += 4;
     }
+    RegPool::returnReg(tempReg);
 }
 
 /* CONTROL STRUCTURES */
@@ -976,11 +978,14 @@ Expression* MainSpace::callFunc(char* id, std::vector<Expression*>* args){
                     } else {
                         auto reg = (*args)[i]->getReg();
                         std::cout << "move " << tempReg << ", " << reg << std::endl;
+                        RegPool::returnReg(reg);
                     }
                     std::cout << "sw " << tempReg << ", " << paramsOffset << "($sp)" << std::endl;
+                    RegPool::returnReg(tempReg);
                 } else {
                     auto reg = (*args)[i]->getLValue()->getAddress()->getReg();
                     copy(reg, "$sp", paramsOffset, (*args)[i]->getType());
+                    RegPool::returnReg(reg);
                 }
             }
             paramsOffset += function->getArgs()[i].second->getSize();
