@@ -24,7 +24,9 @@ void GlobalSymbolTable::storeVariable(std::string id, std::shared_ptr<Types> typ
     auto found = symbolTables.rbegin()->variables.find(id);
     if(found == symbolTables.rbegin()->variables.end())
     {
-        symbolTables.rbegin()->variables[id] = std::make_shared<Symbol>(id, type, globalOffset);
+        std::string memLocation = "GLOBAL";
+        if(symbolTables.size() > 1) memLocation = "STACK";
+        symbolTables.rbegin()->variables[id] = std::make_shared<Symbol>(id, type, globalOffset, memLocation);
         globalOffset += type->getSize();
     }
 }
@@ -50,7 +52,9 @@ void GlobalSymbolTable::storeParam(std::string id, std::shared_ptr<Types> type) 
     auto found = symbolTables.rbegin()->types.find(id);
     if(found == symbolTables.rbegin()->types.end())
     {
-        symbolTables.rbegin()->variables[id] = std::make_shared<Symbol>(id, type, globalOffset);
+        std::string memLocation = "GLOBAL";
+        if(symbolTables.size() > 1) memLocation = "STACK";
+        symbolTables.rbegin()->variables[id] = std::make_shared<Symbol>(id, type, globalOffset, memLocation);
         globalOffset += type->getSize();
     }
 }

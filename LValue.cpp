@@ -10,11 +10,20 @@ std::shared_ptr<Expression> IdAccess::getAddress() const {
     {
         throw std::runtime_error("invalid variable id");
     }
+    auto location = var->getMemLocation();
     auto offset = var->getMemOffset();
     auto tempReg = RegPool::allocate();
 
-    std::cout << "move " << tempReg << ", $gp" << std::endl;
-    std::cout << "addi " << tempReg << ", " << tempReg << ", " << offset << std::endl;
+    if(location == "GLOBAL") {
+        std::cout << "move " << tempReg << ", $gp" << std::endl;
+        std::cout << "addi " << tempReg << ", " << tempReg << ", " << offset << std::endl;
+    }
+    else if (location == "STACK")
+    {
+        auto totalOffset = offset + var->getType()->getSize();
+        std::cout << "move " << tempReg << ", $fp" << std::endl;
+        std::cout << "addi " << tempReg << ", " << tempReg << ", -" << totalOffset << std::endl;
+    }
 
     auto returnExpr = std::make_shared<Expression>(var->getType(), 0, false, var->getMemOffset());
     returnExpr->setReg(tempReg);    auto temp = symbolTable->lookupConst(id);

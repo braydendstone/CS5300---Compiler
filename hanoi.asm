@@ -3,20 +3,20 @@
 main:
 j start
 _moveTower_:
-move $s6, $gp
-addi $s6, $s6, 4
+move $s6, $fp
+addi $s6, $s6, -8
 lw $s7, 0($s6)
 li $s5, 1
 seq $s6, $s7, $s5
 beq $s6, $0, IF0EL0
-move $s7, $gp
-addi $s7, $s7, 4
+move $s7, $fp
+addi $s7, $s7, -8
 lw $s5, 0($s7)
-move $s4, $gp
-addi $s4, $s4, 8
+move $s4, $fp
+addi $s4, $s4, -12
 lw $s7, 0($s4)
-move $s3, $gp
-addi $s3, $s3, 12
+move $s3, $fp
+addi $s3, $s3, -16
 lw $s4, 0($s3)
 la $a0, STR0
 li $v0, 4
@@ -41,19 +41,19 @@ li $v0, 11
 syscall
 j IF0_END
 IF0EL0:
-move $s2, $gp
-addi $s2, $s2, 4
+move $s2, $fp
+addi $s2, $s2, -8
 lw $s3, 0($s2)
 li $s1, 1
 sub $s2, $s3, $s1
-move $s3, $gp
-addi $s3, $s3, 8
+move $s3, $fp
+addi $s3, $s3, -12
 lw $s1, 0($s3)
-move $s0, $gp
-addi $s0, $s0, 16
+move $s0, $fp
+addi $s0, $s0, -20
 lw $s3, 0($s0)
-move $t9, $gp
-addi $t9, $t9, 12
+move $t9, $fp
+addi $t9, $t9, -16
 lw $s0, 0($t9)
 addi $sp, $sp, -8
 sw $ra, 0($sp)
@@ -111,14 +111,14 @@ addi $sp, $sp, 72
 lw $ra, 0($sp)
 lw $fp, 4($sp)
 addi $sp, $sp, 8
-move $s0, $gp
-addi $s0, $s0, 4
+move $s0, $fp
+addi $s0, $s0, -8
 lw $t9, 0($s0)
-move $s3, $gp
-addi $s3, $s3, 8
+move $s3, $fp
+addi $s3, $s3, -12
 lw $s0, 0($s3)
-move $s1, $gp
-addi $s1, $s1, 12
+move $s1, $fp
+addi $s1, $s1, -16
 lw $s3, 0($s1)
 la $a0, STR3
 li $v0, 4
@@ -141,19 +141,19 @@ syscall
 li $a0, 10
 li $v0, 11
 syscall
-move $s2, $gp
-addi $s2, $s2, 4
+move $s2, $fp
+addi $s2, $s2, -8
 lw $s1, 0($s2)
 li $t8, 1
 sub $s2, $s1, $t8
-move $s1, $gp
-addi $s1, $s1, 16
+move $s1, $fp
+addi $s1, $s1, -20
 lw $t8, 0($s1)
-move $t7, $gp
-addi $t7, $t7, 12
+move $t7, $fp
+addi $t7, $t7, -16
 lw $s1, 0($t7)
-move $t6, $gp
-addi $t6, $t6, 8
+move $t6, $fp
+addi $t6, $t6, -12
 lw $t7, 0($t6)
 addi $sp, $sp, -8
 sw $ra, 0($sp)
@@ -219,13 +219,13 @@ start:
 la $a0, STR6
 li $v0, 4
 syscall
-move $t6, $gp
-addi $t6, $t6, 0
+move $t6, $fp
+addi $t6, $t6, -4
 li $v0, 5
 syscall
 sw $v0, 0($t6)
-move $s1, $gp
-addi $s1, $s1, 0
+move $s1, $fp
+addi $s1, $s1, -4
 lw $t7, 0($s1)
 la $a0, STR7
 li $v0, 4
@@ -236,8 +236,8 @@ syscall
 la $a0, STR8
 li $v0, 4
 syscall
-move $t8, $gp
-addi $t8, $t8, 0
+move $t8, $fp
+addi $t8, $t8, -4
 lw $s1, 0($t8)
 addi $sp, $sp, -8
 sw $ra, 0($sp)
