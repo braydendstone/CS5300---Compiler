@@ -451,6 +451,7 @@ void MainSpace::read(std::vector<LValue*>* list)
             } else{
                 throw std::runtime_error("only integer and character types may be read");
             }
+            RegPool::returnReg(reg);
         }
     }
 }
@@ -467,6 +468,7 @@ void MainSpace::write(std::vector<Expression*>* list) {
             else {
                 auto reg = e->getReg();
                 std::cout << "move $a0, " << reg << std::endl;
+                RegPool::returnReg(reg);
             }
 
             std::cout << "li $v0, 1" << std::endl;
@@ -479,6 +481,7 @@ void MainSpace::write(std::vector<Expression*>* list) {
             else {
                 auto reg = e->getReg();
                 std::cout << "lw $a0, 0(" << reg << ")" << std::endl;
+                RegPool::returnReg(reg);
             }
             std::cout << "li $v0, 11" << std::endl;
 
@@ -491,6 +494,7 @@ void MainSpace::write(std::vector<Expression*>* list) {
             else {
                 auto reg = e->getReg();
                 std::cout << "move $a0, " << reg << std::endl;
+                RegPool::returnReg(reg);
             }
             std::cout << "li $v0, 4" << std::endl; // TODO: GET THE RIGHT CODE
 
@@ -503,6 +507,7 @@ void MainSpace::write(std::vector<Expression*>* list) {
             else {
                 auto reg = e->getReg();
                 std::cout << "move $a0, " << reg << std::endl;
+                RegPool::returnReg(reg);
             }
             std::cout << "li $v0, 1" << std::endl;
 
@@ -772,6 +777,7 @@ int MainSpace::ifExpr(Expression* expr)
     } else {
        auto reg = expr->getReg();
        std::cout << "beq " << reg << ", $0, IF" << ifCount << "EL" << elseCount << std::endl;
+       RegPool::returnReg(reg);
    }
     int temp = ifCount;
     ifCount++;
@@ -876,6 +882,7 @@ char* MainSpace::forToHead(char* id, Expression* expr){
     auto resultExpr = binaryop("sgt", varExpr, expr);
     auto reg = resultExpr->getReg();
     std::cout << "bne " << reg << ", $0, " << "FOR" << forCount << "END" << std::endl;
+    RegPool::returnReg(reg);
     return id;
 }
 
@@ -885,6 +892,7 @@ char* MainSpace::forDownToHead(char* id, Expression* expr){
     auto resultExpr = binaryop("slt", varExpr, expr);
     auto reg = resultExpr->getReg();
     std::cout << "bne " << reg << ", $0, " << "FOR" << forCount << "END" << std::endl;
+    RegPool::returnReg(reg);
     return id;
 }
 
@@ -978,14 +986,12 @@ Expression* MainSpace::callFunc(char* id, std::vector<Expression*>* args){
                     } else {
                         auto reg = (*args)[i]->getReg();
                         std::cout << "move " << tempReg << ", " << reg << std::endl;
-                        RegPool::returnReg(reg);
                     }
                     std::cout << "sw " << tempReg << ", " << paramsOffset << "($sp)" << std::endl;
                     RegPool::returnReg(tempReg);
                 } else {
                     auto reg = (*args)[i]->getLValue()->getAddress()->getReg();
                     copy(reg, "$sp", paramsOffset, (*args)[i]->getType());
-                    RegPool::returnReg(reg);
                 }
             }
             paramsOffset += function->getArgs()[i].second->getSize();
