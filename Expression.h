@@ -43,7 +43,7 @@ public:
         }
         return reg;
     }
-    void setReg(std::string newReg) { reg = newReg; }
+    void setReg(std::string newReg) { RegPool::returnReg(reg); reg = newReg; }
     std::shared_ptr<Types> getType() { return type; }
     void setType(std::shared_ptr<Types> newType) { type = newType; }
     void setVal(int newVal) { value = newVal; }

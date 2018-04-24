@@ -46,6 +46,8 @@ std::shared_ptr<Types> IdAccess::getType() const {
     {
         throw std::runtime_error("invalid variable id");
     }
+    auto refType = std::dynamic_pointer_cast<ReferenceType>(var->getType());
+    if(refType) return refType->getBaseType();
     return var->getType();
 }
 
@@ -121,6 +123,7 @@ std::shared_ptr<Expression> MemberAccess::getAddress() const
     auto baseReg = baseAddress->getReg();
 
     std::cout << "addi " << returnReg << ", " << baseReg << ", " << offset << std::endl;
+    RegPool::returnReg(baseReg);
     return returnExpr;
 }
 
@@ -177,6 +180,7 @@ std::shared_ptr<Expression> ArrayAccess::getAddress() const {
         RegPool::returnReg(tempReg1);
         RegPool::returnReg(tempReg2);
         RegPool::returnReg(tempReg3);
+        RegPool::returnReg(srcReg);
 
         return returnExpr;
     }
