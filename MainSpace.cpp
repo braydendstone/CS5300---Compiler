@@ -1096,3 +1096,42 @@ std::vector<std::pair<std::string, std::shared_ptr<Types>>>* MainSpace::paramLis
 
     return finalList;
 }
+
+void MainSpace::returnFunc(Expression* expr){
+    if(expr == nullptr) {
+        std::cout << "move $sp, $fp" << std::endl;
+        std::cout << "jr $ra" << std::endl;
+        return;
+    }
+    if(std::dynamic_pointer_cast<IntegerType>(expr->getType()) || std::dynamic_pointer_cast<BooleanType>(expr->getType())
+       || std::dynamic_pointer_cast<CharacterType>(expr->getType()) || std::dynamic_pointer_cast<StringType>(expr->getType()))
+    {
+        if(expr->isExprConst()) {
+            if(std::dynamic_pointer_cast<StringType>(expr->getType())) {
+                std::cout << "la $v0, STR" << expr->getVal() << std::endl;
+            } else {
+                std::cout << "li $v0, " << expr->getVal() << std::endl;
+            }
+            std::cout << "move $sp, $fp" << std::endl;
+            std::cout << "jr $ra" << std::endl;
+            return;
+        } else {
+            auto reg = expr->getReg();
+            std::cout << "move $v0, " << reg << std::endl;
+            std::cout << "move $sp, $fp" << std::endl;
+            std::cout << "jr $ra" << std::endl;
+            return;
+        }
+    } else {
+        std::string valName = "_" + expr->getType()->getName();
+        auto retLVal = new IdAccess(valName, getSymbolTable());
+        assign(retLVal, expr);
+        retLVal = new IdAccess(valName, getSymbolTable());
+        auto reg = retLVal->getAddress()->getReg();
+        std::cout << "move $v0, " << reg << std::endl;
+        std::cout << "move $sp, $fp" << std::endl;
+        std::cout << "jr $ra" << std::endl;
+        RegPool::returnReg(reg);
+        return;
+    }
+}

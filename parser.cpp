@@ -1576,13 +1576,13 @@ yyreduce:
 
   case 16:
 #line 180 "parser.y" /* yacc.c:1646  */
-    {}
+    { MainSpace::endFunc(); }
 #line 1581 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 17:
 #line 183 "parser.y" /* yacc.c:1646  */
-    {}
+    { Function* f = MainSpace::createFunc((yyvsp[-5].str_val), (yyvsp[-3].paramList), (yyvsp[0].type_val)); MainSpace::declareFunc(f); }
 #line 1587 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
@@ -1936,13 +1936,13 @@ yyreduce:
 
   case 86:
 #line 334 "parser.y" /* yacc.c:1646  */
-    {}
+    { MainSpace::returnFunc((yyvsp[0].expr)); }
 #line 1941 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 
   case 87:
 #line 335 "parser.y" /* yacc.c:1646  */
-    {}
+    { MainSpace::returnFunc(nullptr); }
 #line 1947 "/home/braydendstone/Documents/CS5300/official/parser.cpp" /* yacc.c:1646  */
     break;
 

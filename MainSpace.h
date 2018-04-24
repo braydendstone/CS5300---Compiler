@@ -99,6 +99,7 @@ public:
     static void endFunc();
     static std::vector<std::pair<std::string, std::shared_ptr<Types>>>* addParameter(int ref, std::vector<std::string>* identList, Types* type);
     static std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramList(std::vector<std::pair<std::string, std::shared_ptr<Types>>>* finalList, std::vector<std::pair<std::string, std::shared_ptr<Types>>>* list);
+    static void returnFunc(Expression* expr);
 };
 
 

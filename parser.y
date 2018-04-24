@@ -177,10 +177,10 @@ PSignature : PROCEDURESY IDENTSY LPARENSY OptFormalParameters RPARENSY { Functio
            ;
 
 FunctionDecl : FSignature SCOLONSY FORWARDSY SCOLONSY {}
-						 | FSignature SCOLONSY Body SCOLONSY {}
+						 | FSignature SCOLONSY Body SCOLONSY { MainSpace::endFunc(); }
 						 ;
 
-FSignature : FUNCTIONSY IDENTSY LPARENSY OptFormalParameters RPARENSY COLONSY Type {}
+FSignature : FUNCTIONSY IDENTSY LPARENSY OptFormalParameters RPARENSY COLONSY Type { Function* f = MainSpace::createFunc($2, $4, $7); MainSpace::declareFunc(f); }
            ;
 
 OptFormalParameters : FormalParameters { $$ = $1; }
@@ -331,8 +331,8 @@ ForStart : FORSY IDENTSY ASSIGNSY Expression { $$ = MainSpace::setupForLoop($2, 
 StopStatement : STOPSY { MainSpace::stopProgram(); }
               ;
 
-ReturnStatement : RETURNSY Expression {}
-                | RETURNSY {}
+ReturnStatement : RETURNSY Expression { MainSpace::returnFunc($2); }
+                | RETURNSY { MainSpace::returnFunc(nullptr); }
                 ;
 
 
