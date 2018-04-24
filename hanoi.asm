@@ -224,7 +224,7 @@ addi $t7, $t7, 0
 lw $t6, 0($t7)
 li $v0, 5
 syscall
-move $v0, $t6
+move $t6, $v0
 move $s1, $gp
 addi $s1, $s1, 0
 lw $t7, 0($s1)

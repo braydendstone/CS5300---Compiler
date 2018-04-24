@@ -441,13 +441,13 @@ void MainSpace::read(std::vector<Expression*>* list)
             {
                 std::cout << "li $v0, 5" << std::endl;
                 std::cout << "syscall" << std::endl;
-                std::cout << "move $v0, " << reg << std::endl;
+                std::cout << "move " << reg << ", $v0" << std::endl;
             }
             else if(e->getType() == GetTypes::charType())
             {
                 std::cout << "li $v0, 12" << std::endl;
                 std::cout << "syscall" << std::endl;
-                std::cout << "move $v0, " << reg << std::endl;
+                std::cout << "move " << reg << ", $v0" << std::endl;
             } else{
                 throw std::runtime_error("only integer and character types may be read");
             }
