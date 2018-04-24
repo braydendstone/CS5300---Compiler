@@ -27,7 +27,7 @@ public:
     explicit Expression(std::shared_ptr<Types> type);
     Expression(std::shared_ptr<Types> type, int value, bool isConst, int offset = 0);
     Expression(std::shared_ptr<LValue> lval);
-//    ~Expression(){ RegPool::returnReg(reg); }
+    ~Expression(){ if(reg != "") {RegPool::returnReg(reg);} }
     int getOffset() { return memOffset; }
     void setOffset(int newOffset) { memOffset = newOffset; }
     bool isExprConst() { return isConst; }
@@ -43,7 +43,11 @@ public:
         }
         return reg;
     }
-    void setReg(std::string newReg) { RegPool::returnReg(reg); reg = newReg; }
+    void setReg(std::string newReg) {
+        if(reg != "") {
+            RegPool::returnReg(reg);
+        }
+        reg = newReg; }
     std::shared_ptr<Types> getType() { return type; }
     void setType(std::shared_ptr<Types> newType) { type = newType; }
     void setVal(int newVal) { value = newVal; }

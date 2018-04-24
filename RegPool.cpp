@@ -43,7 +43,7 @@ std::string RegPool::allocate(){
     }
 //    auto x = pool.size();
 //    auto y = pool.front();
-    auto newLabel = pool.back();  // IGNORE ERROR this is an CLion issue
+    auto newLabel = static_cast<std::basic_string<char, std::char_traits<char>, std::allocator<char>> &&>(pool.back());  // IGNORE ERROR this is an CLion issue
     pool.pop_back();
 //    auto z = pool.size();
 //    auto h = pool.back();
