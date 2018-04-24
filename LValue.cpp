@@ -22,7 +22,7 @@ std::shared_ptr<Expression> IdAccess::getAddress() const {
     {
         auto totalOffset = offset + var->getType()->getSize();
         std::cout << "move " << tempReg << ", $fp" << std::endl;
-        std::cout << "addi " << tempReg << ", " << tempReg << ", " << totalOffset << std::endl;
+        std::cout << "addi " << tempReg << ", " << tempReg << ", " << offset << std::endl;
     }
 
     auto returnExpr = std::make_shared<Expression>(var->getType(), 0, false, var->getMemOffset());

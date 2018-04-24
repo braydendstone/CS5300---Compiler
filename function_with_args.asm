@@ -5,10 +5,10 @@ move $fp, $sp
 j start
 _add_:
 move $s6, $fp
-addi $s6, $s6, 4
+addi $s6, $s6, 0
 lw $s7, 0($s6)
 move $s5, $fp
-addi $s5, $s5, 8
+addi $s5, $s5, 4
 lw $s6, 0($s5)
 add $s5, $s7, $s6
 move $v0, $s5
@@ -19,14 +19,14 @@ jr $ra
 start: 
 li $s6, 1
 move $s7, $fp
-addi $s7, $s7, 4
+addi $s7, $s7, 0
 sw $s6, 0($s7)
 li $s7, 2
 move $s6, $fp
-addi $s6, $s6, 8
+addi $s6, $s6, 4
 sw $s7, 0($s6)
 move $s7, $fp
-addi $s7, $s7, 4
+addi $s7, $s7, 0
 lw $s6, 0($s7)
 la $a0, STR0
 li $v0, 4
@@ -38,7 +38,7 @@ li $a0, 10
 li $v0, 11
 syscall
 move $s7, $fp
-addi $s7, $s7, 8
+addi $s7, $s7, 4
 lw $s6, 0($s7)
 la $a0, STR1
 li $v0, 4
@@ -50,10 +50,10 @@ li $a0, 10
 li $v0, 11
 syscall
 move $s7, $fp
-addi $s7, $s7, 4
+addi $s7, $s7, 0
 lw $s6, 0($s7)
 move $s4, $fp
-addi $s4, $s4, 8
+addi $s4, $s4, 4
 lw $s7, 0($s4)
 addi $sp, $sp, -8
 sw $ra, 0($sp)
@@ -180,7 +180,7 @@ li $a0, 10
 li $v0, 11
 syscall
 move $s3, $fp
-addi $s3, $s3, 4
+addi $s3, $s3, 0
 lw $s4, 0($s3)
 la $a0, STR4
 li $v0, 4
@@ -192,7 +192,7 @@ li $a0, 10
 li $v0, 11
 syscall
 move $s3, $fp
-addi $s3, $s3, 8
+addi $s3, $s3, 4
 lw $s4, 0($s3)
 la $a0, STR5
 li $v0, 4
