@@ -906,7 +906,7 @@ void MainSpace::endForTo(std::string id){
     assign(var, newExpr);
     std::cout << "j FOR" << forCount << std::endl;
     std::cout << "FOR" << forCount << "END:" << std::endl;
-    getSymbolTable()->exit_scope();
+    //getSymbolTable()->exit_scope();
     forCount++;
 }
 
@@ -919,7 +919,7 @@ void MainSpace::endForDownTo(std::string id){
     assign(var, newExpr);
     std::cout << "j FOR" << forCount << std::endl;
     std::cout << "FOR" << forCount << "END:" << std::endl;
-    getSymbolTable()->exit_scope();
+    //getSymbolTable()->exit_scope();
     forCount++;
 }
 
