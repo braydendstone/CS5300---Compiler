@@ -7,18 +7,18 @@ _moveTower_:
 move $s6, $fp
 addi $s6, $s6, 0
 lw $s7, 0($s6)
-li $s6, 1
-seq $s6, $s7, $s6
+li $s5, 1
+seq $s6, $s7, $s5
 beq $s6, $0, IF0EL0
-move $s6, $fp
-addi $s6, $s6, 0
-lw $s6, 0($s6)
-move $s6, $fp
-addi $s6, $s6, 4
-lw $s6, 0($s6)
-move $s6, $fp
-addi $s6, $s6, 8
-lw $s6, 0($s6)
+move $s5, $fp
+addi $s5, $s5, 0
+lw $s6, 0($s5)
+move $s7, $fp
+addi $s7, $s7, 4
+lw $s5, 0($s7)
+move $s4, $fp
+addi $s4, $s4, 8
+lw $s7, 0($s4)
 la $a0, STR0
 li $v0, 4
 syscall
@@ -28,13 +28,13 @@ syscall
 la $a0, STR1
 li $v0, 4
 syscall
-lw $a0, 0($s6)
+lw $a0, 0($s5)
 li $v0, 11
 syscall
 la $a0, STR2
 li $v0, 4
 syscall
-lw $a0, 0($s6)
+lw $a0, 0($s7)
 li $v0, 11
 syscall
 li $a0, 10
@@ -42,20 +42,20 @@ li $v0, 11
 syscall
 j IF0_END
 IF0EL0:
-move $s6, $fp
-addi $s6, $s6, 0
-lw $s6, 0($s6)
+move $s5, $fp
+addi $s5, $s5, 0
+lw $s7, 0($s5)
 li $s6, 1
-sub $s6, $s6, $s6
-move $s6, $fp
-addi $s6, $s6, 4
-lw $s6, 0($s6)
-move $s6, $fp
-addi $s6, $s6, 12
-lw $s6, 0($s6)
-move $s6, $fp
-addi $s6, $s6, 8
-lw $s6, 0($s6)
+sub $s5, $s7, $s6
+move $s7, $fp
+addi $s7, $s7, 4
+lw $s6, 0($s7)
+move $s4, $fp
+addi $s4, $s4, 12
+lw $s7, 0($s4)
+move $s3, $fp
+addi $s3, $s3, 8
+lw $s4, 0($s3)
 addi $sp, $sp, -8
 sw $ra, 0($sp)
 sw $fp, 4($sp)
@@ -79,14 +79,14 @@ sw $s5, 60($sp)
 sw $s6, 64($sp)
 sw $s7, 68($sp)
 addi $sp, $sp, -16
-move $s6, $s6
-sw $s6, 0($sp)
-move $s6, $s6
-sw $s6, 4($sp)
-move $s6, $s6
-sw $s6, 8($sp)
-move $s6, $s6
-sw $s6, 12($sp)
+move $s3, $s5
+sw $s3, 0($sp)
+move $s3, $s6
+sw $s3, 4($sp)
+move $s3, $s7
+sw $s3, 8($sp)
+move $s3, $s4
+sw $s3, 12($sp)
 move $fp, $sp
 jal _moveTower_
 addi $sp, $sp, 16
@@ -112,50 +112,50 @@ addi $sp, $sp, 72
 lw $ra, 0($sp)
 lw $fp, 4($sp)
 addi $sp, $sp, 8
-move $s6, $fp
-addi $s6, $s6, 0
-lw $s6, 0($s6)
-move $s6, $fp
-addi $s6, $s6, 4
-lw $s6, 0($s6)
-move $s6, $fp
-addi $s6, $s6, 8
-lw $s6, 0($s6)
+move $s2, $fp
+addi $s2, $s2, 0
+lw $s3, 0($s2)
+move $s1, $fp
+addi $s1, $s1, 4
+lw $s2, 0($s1)
+move $s0, $fp
+addi $s0, $s0, 8
+lw $s1, 0($s0)
 la $a0, STR3
 li $v0, 4
 syscall
-move $a0, $s6
+move $a0, $s3
 li $v0, 1
 syscall
 la $a0, STR4
 li $v0, 4
 syscall
-lw $a0, 0($s6)
+lw $a0, 0($s2)
 li $v0, 11
 syscall
 la $a0, STR5
 li $v0, 4
 syscall
-lw $a0, 0($s6)
+lw $a0, 0($s1)
 li $v0, 11
 syscall
 li $a0, 10
 li $v0, 11
 syscall
-move $s6, $fp
-addi $s6, $s6, 0
-lw $s6, 0($s6)
-li $s6, 1
-sub $s6, $s6, $s6
-move $s6, $fp
-addi $s6, $s6, 12
-lw $s6, 0($s6)
-move $s6, $fp
-addi $s6, $s6, 8
-lw $s6, 0($s6)
-move $s6, $fp
-addi $s6, $s6, 4
-lw $s6, 0($s6)
+move $s2, $fp
+addi $s2, $s2, 0
+lw $s1, 0($s2)
+li $s3, 1
+sub $s2, $s1, $s3
+move $s1, $fp
+addi $s1, $s1, 12
+lw $s3, 0($s1)
+move $s0, $fp
+addi $s0, $s0, 8
+lw $s1, 0($s0)
+move $t9, $fp
+addi $t9, $t9, 4
+lw $s0, 0($t9)
 addi $sp, $sp, -8
 sw $ra, 0($sp)
 sw $fp, 4($sp)
@@ -179,14 +179,14 @@ sw $s5, 60($sp)
 sw $s6, 64($sp)
 sw $s7, 68($sp)
 addi $sp, $sp, -16
-move $s6, $s6
-sw $s6, 0($sp)
-move $s6, $s6
-sw $s6, 4($sp)
-move $s6, $s6
-sw $s6, 8($sp)
-move $s6, $s6
-sw $s6, 12($sp)
+move $t9, $s2
+sw $t9, 0($sp)
+move $t9, $s3
+sw $t9, 4($sp)
+move $t9, $s1
+sw $t9, 8($sp)
+move $t9, $s0
+sw $t9, 12($sp)
 move $fp, $sp
 jal _moveTower_
 addi $sp, $sp, 16
@@ -220,26 +220,26 @@ start:
 la $a0, STR6
 li $v0, 4
 syscall
-move $s6, $fp
-addi $s6, $s6, 0
+move $t9, $fp
+addi $t9, $t9, 0
 li $v0, 5
 syscall
-sw $v0, 0($s6)
-move $s6, $fp
-addi $s6, $s6, 0
-lw $s6, 0($s6)
+sw $v0, 0($t9)
+move $t8, $fp
+addi $t8, $t8, 0
+lw $t9, 0($t8)
 la $a0, STR7
 li $v0, 4
 syscall
-move $a0, $s6
+move $a0, $t9
 li $v0, 1
 syscall
 la $a0, STR8
 li $v0, 4
 syscall
-move $s6, $fp
-addi $s6, $s6, 0
-lw $s6, 0($s6)
+move $t8, $fp
+addi $t8, $t8, 0
+lw $t9, 0($t8)
 addi $sp, $sp, -8
 sw $ra, 0($sp)
 sw $fp, 4($sp)
@@ -263,14 +263,14 @@ sw $s5, 60($sp)
 sw $s6, 64($sp)
 sw $s7, 68($sp)
 addi $sp, $sp, -16
-move $s6, $s6
-sw $s6, 0($sp)
-li $s6, 65
-sw $s6, 4($sp)
-li $s6, 66
-sw $s6, 8($sp)
-li $s6, 67
-sw $s6, 12($sp)
+move $t8, $t9
+sw $t8, 0($sp)
+li $t8, 65
+sw $t8, 4($sp)
+li $t8, 66
+sw $t8, 8($sp)
+li $t8, 67
+sw $t8, 12($sp)
 move $fp, $sp
 jal _moveTower_
 addi $sp, $sp, 16

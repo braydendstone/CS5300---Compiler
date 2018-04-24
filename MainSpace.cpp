@@ -614,7 +614,7 @@ Types* MainSpace::simpleType(std::string id)
     auto type = getSymbolTable()->lookupAllType(id);
     if(type == nullptr)
     {
-        throw std::runtime_error("undefined type " + id);
+        throw std::runtime_error("undefined type --> " + id);
     }
 
     return type.get();
