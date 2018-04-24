@@ -219,12 +219,11 @@ start:
 la $a0, STR6
 li $v0, 4
 syscall
-move $t7, $gp
-addi $t7, $t7, 0
-lw $t6, 0($t7)
+move $t6, $gp
+addi $t6, $t6, 0
 li $v0, 5
 syscall
-move $t6, $v0
+sw $v0, 0($t6)
 move $s1, $gp
 addi $s1, $s1, 0
 lw $t7, 0($s1)

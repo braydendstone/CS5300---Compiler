@@ -26,6 +26,7 @@ void yyerror(const char*);
   Expression * expr;
   std::vector<Expression*>* exprList;
   std::vector<std::string>* identList;
+  std::vector<LValue*>* lValList;
   Types* type_val;
   LValue* lvalue;
   std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramList;
@@ -124,7 +125,7 @@ void yyerror(const char*);
     %type <paramList> OptFormalParameters
 %type <int_val> PSignature 
 %type <int_val> ProcedureCall
-    %type <exprList> ReadArgs
+    %type <lValList> ReadArgs
 %type <int_val> ReadStatement 
     %type <type_val> RecordType
 %type <int_val> RepeatStatement 
@@ -338,8 +339,8 @@ ReturnStatement : RETURNSY Expression {}
 ReadStatement : READSY LPARENSY ReadArgs RPARENSY { MainSpace::read($3); }
               ;
 
-ReadArgs : ReadArgs COMMASY LValue { $$ = MainSpace::exprList($1, $3); }
-         | LValue                  { $$ = MainSpace::exprList(nullptr, $1); }
+ReadArgs : ReadArgs COMMASY LValue { $$ = MainSpace::lvalList($1, $3); }
+         | LValue                  { $$ = MainSpace::lvalList(nullptr, $1); }
          ;
 
 WriteStatement : WRITESY LPARENSY WriteArgs RPARENSY { MainSpace::write($3); }

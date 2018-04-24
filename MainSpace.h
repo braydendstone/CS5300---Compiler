@@ -48,9 +48,9 @@ public:
     static Expression* binaryop(std::string symbol, Expression* a, Expression* b);
     static Expression* constFold(std::string sym, Expression* a, Expression* b);
 
-    static void read(std::vector<Expression*>* list);
+    static void read(std::vector<LValue*>* list);
     static void write(std::vector<Expression*>* list);
-    static std::vector<Expression*>* exprList(std::vector<Expression*>* list, LValue* e);
+    static std::vector<LValue*>* lvalList(std::vector<LValue*>* list, LValue* e);
     static std::vector<Expression*>* exprList(std::vector<Expression*>* list, Expression* e);
 
 

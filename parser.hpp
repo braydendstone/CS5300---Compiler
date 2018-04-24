@@ -133,12 +133,13 @@ union YYSTYPE
   Expression * expr;
   std::vector<Expression*>* exprList;
   std::vector<std::string>* identList;
+  std::vector<LValue*>* lValList;
   Types* type_val;
   LValue* lvalue;
   std::vector<std::pair<std::string, std::shared_ptr<Types>>>* paramList;
   //std::pair<std::string, std::string> stringPair;
 
-#line 142 "/home/braydendstone/Documents/CS5300/official/parser.hpp" /* yacc.c:1909  */
+#line 143 "/home/braydendstone/Documents/CS5300/official/parser.hpp" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

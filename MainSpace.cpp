@@ -427,27 +427,27 @@ Expression* MainSpace::constFold(std::string sym, Expression* a, Expression* b)
     return result;
 }
 
-void MainSpace::read(std::vector<Expression*>* list)
+void MainSpace::read(std::vector<LValue*>* list)
 {
     for(auto e: *list)
     {
-        if(e->isExprConst())
+        if(e->isConst())
         {
             throw std::runtime_error("cannot read value into const");
         }
         else {
-            auto reg = e->getReg();
+            auto reg = e->getAddress()->getReg();
             if(e->getType() == GetTypes::intType())
             {
                 std::cout << "li $v0, 5" << std::endl;
                 std::cout << "syscall" << std::endl;
-                std::cout << "move " << reg << ", $v0" << std::endl;
+                std::cout << "sw $v0, 0(" << reg << ")" << std::endl;
             }
             else if(e->getType() == GetTypes::charType())
             {
                 std::cout << "li $v0, 12" << std::endl;
                 std::cout << "syscall" << std::endl;
-                std::cout << "move " << reg << ", $v0" << std::endl;
+                std::cout << "sw $v0, 0(" << reg << ")" << std::endl;
             } else{
                 throw std::runtime_error("only integer and character types may be read");
             }
@@ -514,14 +514,14 @@ void MainSpace::write(std::vector<Expression*>* list) {
     }
 }
 
-std::vector<Expression*>* MainSpace::exprList(std::vector<Expression*>* list, LValue* e)
+std::vector<LValue*>* MainSpace::lvalList(std::vector<LValue*>* list, LValue* e)
 {
     if(list == nullptr)
     {
-        list = new std::vector<Expression*>();
+        list = new std::vector<LValue*>();
     }
 
-    list->push_back(lValToExpr(e));
+    list->push_back(e);
     return list;
 }
 
