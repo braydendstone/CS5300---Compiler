@@ -4,19 +4,19 @@ main:
 j start
 _moveTower_:
 move $s6, $fp
-addi $s6, $s6, 0
+addi $s6, $s6, 4
 lw $s7, 0($s6)
 li $s5, 1
 seq $s6, $s7, $s5
 beq $s6, $0, IF0EL0
 move $s5, $fp
-addi $s5, $s5, 0
+addi $s5, $s5, 4
 lw $s6, 0($s5)
 move $s7, $fp
-addi $s7, $s7, 4
+addi $s7, $s7, 8
 lw $s5, 0($s7)
 move $s4, $fp
-addi $s4, $s4, 8
+addi $s4, $s4, 12
 lw $s7, 0($s4)
 la $a0, STR0
 li $v0, 4
@@ -42,18 +42,18 @@ syscall
 j IF0_END
 IF0EL0:
 move $s5, $fp
-addi $s5, $s5, 0
+addi $s5, $s5, 4
 lw $s7, 0($s5)
 li $s6, 1
 sub $s5, $s7, $s6
 move $s7, $fp
-addi $s7, $s7, 4
+addi $s7, $s7, 8
 lw $s6, 0($s7)
 move $s4, $fp
-addi $s4, $s4, 12
+addi $s4, $s4, 16
 lw $s7, 0($s4)
 move $s3, $fp
-addi $s3, $s3, 8
+addi $s3, $s3, 12
 lw $s4, 0($s3)
 addi $sp, $sp, -8
 sw $ra, 0($sp)
@@ -112,13 +112,13 @@ lw $ra, 0($sp)
 lw $fp, 4($sp)
 addi $sp, $sp, 8
 move $s2, $fp
-addi $s2, $s2, 0
+addi $s2, $s2, 4
 lw $s3, 0($s2)
 move $s1, $fp
-addi $s1, $s1, 4
+addi $s1, $s1, 8
 lw $s2, 0($s1)
 move $s0, $fp
-addi $s0, $s0, 8
+addi $s0, $s0, 12
 lw $s1, 0($s0)
 la $a0, STR3
 li $v0, 4
@@ -142,18 +142,18 @@ li $a0, 10
 li $v0, 11
 syscall
 move $s2, $fp
-addi $s2, $s2, 0
+addi $s2, $s2, 4
 lw $s1, 0($s2)
 li $s3, 1
 sub $s2, $s1, $s3
 move $s1, $fp
-addi $s1, $s1, 12
+addi $s1, $s1, 16
 lw $s3, 0($s1)
 move $s0, $fp
-addi $s0, $s0, 8
+addi $s0, $s0, 12
 lw $s1, 0($s0)
 move $t9, $fp
-addi $t9, $t9, 4
+addi $t9, $t9, 8
 lw $s0, 0($t9)
 addi $sp, $sp, -8
 sw $ra, 0($sp)
@@ -220,12 +220,12 @@ la $a0, STR6
 li $v0, 4
 syscall
 move $t9, $fp
-addi $t9, $t9, -4
+addi $t9, $t9, 4
 li $v0, 5
 syscall
 sw $v0, 0($t9)
 move $t8, $fp
-addi $t8, $t8, -4
+addi $t8, $t8, 4
 lw $t9, 0($t8)
 la $a0, STR7
 li $v0, 4
@@ -237,7 +237,7 @@ la $a0, STR8
 li $v0, 4
 syscall
 move $t8, $fp
-addi $t8, $t8, -4
+addi $t8, $t8, 4
 lw $t9, 0($t8)
 addi $sp, $sp, -8
 sw $ra, 0($sp)

@@ -20,7 +20,7 @@ std::shared_ptr<Expression> IdAccess::getAddress() const {
     }
     else if (location == "STACK")
     {
-        auto totalOffset = offset - var->getType()->getSize();
+        auto totalOffset = offset + var->getType()->getSize();
         std::cout << "move " << tempReg << ", $fp" << std::endl;
         std::cout << "addi " << tempReg << ", " << tempReg << ", " << totalOffset << std::endl;
     }

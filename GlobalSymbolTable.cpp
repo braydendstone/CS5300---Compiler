@@ -54,8 +54,8 @@ void GlobalSymbolTable::storeParam(std::string id, std::shared_ptr<Types> type) 
     {
         std::string memLocation = "GLOBAL";
         if(symbolTables.size() > 1) memLocation = "STACK";
-        symbolTables.rbegin()->variables[id] = std::make_shared<Symbol>(id, type, globalOffset, memLocation);
-        globalOffset += type->getSize();
+        symbolTables.rbegin()->variables[id] = std::make_shared<Symbol>(id, type, paramOffset, memLocation);
+        paramOffset += type->getSize();
     }
 }
 

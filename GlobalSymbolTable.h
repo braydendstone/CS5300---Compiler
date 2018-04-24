@@ -11,7 +11,7 @@
 
 class GlobalSymbolTable {
 public:
-    GlobalSymbolTable() : stringCounter(0), globalOffset(0) {};
+    GlobalSymbolTable() : stringCounter(0), globalOffset(0), paramOffset(0) {};
 
     void storeConst(std::string id, std::shared_ptr<Expression> expression);
     void storeVariable(std::string id, std::shared_ptr<Types> type);
@@ -36,6 +36,7 @@ private:
     std::vector<SymbolTable> symbolTables;
     std::vector<std::string> stringList;
     int globalOffset;
+    int paramOffset;
     int stringCounter;
 };
 
