@@ -1,6 +1,7 @@
 .globl main
 .code
 main:
+move $fp, $sp
 j start
 _moveTower_:
 move $s6, $fp

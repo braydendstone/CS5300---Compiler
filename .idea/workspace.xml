@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainSpace.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainSpace.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainSpace.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="1063" column="0" lean-forward="false" selection-start-line="1063" selection-start-column="0" selection-end-line="1063" selection-end-column="0" />
+            <state relative-caret-position="182">
+              <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -65,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GlobalSymbolTable.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GlobalSymbolTable.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GlobalSymbolTable.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -129,7 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addtype</find>
       <find>inserttype</find>
       <find>arraytype(</find>
       <find>lookupArra</find>
@@ -159,6 +158,7 @@
       <find>sw</find>
       <find>exprlist</find>
       <find>-&gt;getReg</find>
+      <find>read</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -180,10 +180,10 @@
         <option value="$PROJECT_DIR$/parser.y" />
         <option value="$PROJECT_DIR$/MainSpace.h" />
         <option value="$PROJECT_DIR$/Symbol.h" />
-        <option value="$PROJECT_DIR$/MainSpace.cpp" />
         <option value="$PROJECT_DIR$/LValue.cpp" />
         <option value="$PROJECT_DIR$/GlobalSymbolTable.h" />
         <option value="$PROJECT_DIR$/GlobalSymbolTable.cpp" />
+        <option value="$PROJECT_DIR$/MainSpace.cpp" />
       </list>
     </option>
   </component>
@@ -317,42 +317,42 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/MainSpace.cpp</url>
-          <line>868</line>
+          <line>869</line>
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/MainSpace.cpp</url>
-          <line>879</line>
+          <line>880</line>
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/MainSpace.cpp</url>
-          <line>826</line>
+          <line>827</line>
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/MainSpace.cpp</url>
-          <line>927</line>
+          <line>928</line>
           <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/MainSpace.cpp</url>
-          <line>953</line>
+          <line>954</line>
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/MainSpace.cpp</url>
-          <line>1070</line>
+          <line>1071</line>
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/MainSpace.cpp</url>
-          <line>1041</line>
+          <line>1042</line>
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/MainSpace.cpp</url>
-          <line>1058</line>
+          <line>1059</line>
           <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -718,14 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainSpace.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="1063" column="0" lean-forward="false" selection-start-line="1063" selection-start-column="0" selection-end-line="1063" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GlobalSymbolTable.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -736,8 +728,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GlobalSymbolTable.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainSpace.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
           <folding />
         </state>
       </provider>

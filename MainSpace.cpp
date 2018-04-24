@@ -16,6 +16,7 @@ void MainSpace::setupProgram()
     std::cout << ".globl main" << std::endl;
     std::cout << ".code" << std::endl;
     std::cout << "main:" << std::endl;
+    std::cout << "move $fp, $sp" << std::endl;
 //    std::cout << "main: la $gp, GA" << std::endl;
     std::cout << "j start" << std::endl;
 
